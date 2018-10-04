@@ -1,6 +1,12 @@
 <?php 
+
 	//make connection to database
 	$connect = mysqli_connect('localhost','root','password','grocery_delivery');
+
+	$itemID = "";
+	$quantity = "";
+	$totWeight = "";
+	$query = "";
 
 	$sql = "SELECT * FROM item";
 
@@ -29,13 +35,29 @@
 					echo "<td align=center>".$item['item_name']."</td>";
 					echo "<td align=center>".$item['item_weight']." ".$item['item_weight_unit']."</td>";
 					echo "<td align=center>".$item['item_price']."</td>";
-					echo "<td align=center><input type='number' name='quantity' value='0' style='width:40px'</td>";
+					echo "<td align=center>
+							<input type='number' name='quantity' value='0' min='0' style='width:40px'
+						</td>";
+					echo "<form id='form1'>
+							<button onclick = 'updateCart()'>Add to Cart</button>
+						</form>";
 					echo "</tr>";
 				}
 			?>
 		</table>
 		<form method="post" action="pantry.php">
-				<p><a href="add_to_cart.php">Add to Cart</a></p>
+				<p><a href="go_to_cart.php">Go to Cart</a></p>
 		</form>
+
+		<script>
+			
+				function updateCart()
+				{
+					var quantity, x;
+					x = document.getElementById('form1');				
+					document.getElementById('quan');
+				}
+		</script>
+		<p id="quan"></p>";
 	</body>
 </html>
