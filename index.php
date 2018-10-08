@@ -178,7 +178,7 @@
       <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
       <div class="ui huge olive button">Get Started <i class="right arrow icon"></i></div>
       <div class="ui container">
-        <button class="ui medium inverted button">View Pantry</button>
+        <button class="ui medium inverted button" href="pantry.php">View Pantry</button>
         <button class="ui medium inverted button">Track Order</button>
       </div>
     </div>
