@@ -67,7 +67,7 @@
           </div>
           
           <div class="field">
-				    <button type="submit" class="btn" name="reg_user">Register</button>
+				    <button type="submit" class="ui large fluid green submit button" name="reg_user">Register</button>
 			    </div>
           <!-- <div class="ui fluid large green submit button" name="reg_user">Sign up</div> -->
 
