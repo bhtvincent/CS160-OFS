@@ -4,7 +4,7 @@
 <head>
 
   <!-- Site Properties -->
-  <title>Sign Up</title>
+  <title>Create Profile</title>
 
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
 
@@ -29,11 +29,11 @@
   <div class="column">
     <h2 class="ui green header">
       <div class="content">
-        Create an account
+        Create Your Profile
       </div>
     </h2>
     
-    <form method="post" actions="signup.php">
+    <form method="post" actions="createProfile.php">
 
       <?php include('errors.php'); ?>
 
@@ -44,33 +44,47 @@
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input type="text" name="username" placeholder="Username" value="<?php echo $username; ?>">
+              <input type="text" name="first" placeholder="First Name">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="last" placeholder="Last Name">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="username" placeholder="Username">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="phone" placeholder="Phone Number" >
             </div>
           </div>
           
           <div class="field">
             <div class="ui left icon input">
               <i class="envelope icon"></i>
-              <input type="text" name="email" placeholder="E-mail address" value="<?php echo $email; ?>">
+              <input type="text" name="city" placeholder="City">
             </div>
           </div>
           
           <div class="field">
             <div class="ui left icon input">
               <i class="lock icon"></i>
-              <input type="password" name="password_1" placeholder="Password">
+              <input type="text" name="address" placeholder="Street Address">
             </div>
           </div>
           
           <div class="field">
-            <div class="ui left icon input">
-              <i class="lock icon"></i>
-              <input type="password" name="password_2" placeholder="Confirm Password">
-            </div>
-          </div>
-          
-          <div class="field">
-				    <button type="submit" class="ui large fluid green submit button" name="reg_user">Register</button>
+				    <button type="submit" class="ui large fluid green submit button" name="create_profile">Create</button>
 			    </div>
           <!-- <div class="ui fluid large green submit button" name="reg_user">Sign up</div> -->
 
@@ -78,11 +92,11 @@
 
       </form>
 
-      <div class="ui message">
+      <!-- <div class="ui message">
         Have an account already? <a href="signin.php">Log in here.</a>
-      </div>
+      </div> -->
       
-      <a href="index.php">    
+      <a href="home.php">    
         <button class="ui fluid large primary button">
           <i class="left arrow icon "></i>
           Home

@@ -70,8 +70,8 @@
           <a class="item">Team</a>
           <a class="item">Contact</a>
           <div class="right item">
-            <a class="ui green button" href="signin.php">Log in</a>
-            <a class="ui green button" href="signup.php">Sign Up</a>
+            <a class="ui green button" href="profile.php">Profile</a>
+            <a class="ui green button" href="index.php">Log Out</a>
           </div>
         </div>
       </div>
