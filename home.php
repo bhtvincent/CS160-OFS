@@ -1,3 +1,13 @@
+<?php 
+	session_start(); 
+
+	if (!isset($_SESSION['username'])) {
+		$_SESSION['msg'] = "You must log in first";
+		header('location: login.php');
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,6 +80,7 @@
           <a class="item">Team</a>
           <a class="item">Contact</a>
           <div class="right item">
+            <h2>Welcome, <?php echo $_SESSION['username']; ?> !</h2>
             <a class="ui green button" href="profile.php">Profile</a>
             <a class="ui green button" href="index.php">Log Out</a>
           </div>
@@ -82,6 +93,7 @@
         <div class="eight wide column">
           <h1>something simple.</h1>
           <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+  
           <div class="ui huge olive button">Get Started <i class="right arrow icon"></i></div>
           <div class="ui container">
             <a href="#">

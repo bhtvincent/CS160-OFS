@@ -69,7 +69,7 @@
         If you don't have an account yet. <a href="signup.php">Sign up here.</a>
       </div>
 
-      <a href="home.php">    
+      <a href="index.php">    
         <button class="ui fluid large primary button">
           <i class="left arrow icon "></i>
           Home
