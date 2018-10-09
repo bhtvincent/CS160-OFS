@@ -21,6 +21,9 @@
     .column {
       max-width: 450px;
     }
+    .input {
+      width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -65,12 +68,14 @@
       <div class="ui message">
         If you don't have an account yet. <a href="signup.php">Sign up here.</a>
       </div>
-      <a href="index.php">    
+
+      <a href="home.php">    
         <button class="ui fluid large primary button">
           <i class="left arrow icon "></i>
           Home
         </button>
       </a>
+      
   </form>
 
   </div>
