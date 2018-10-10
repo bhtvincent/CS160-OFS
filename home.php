@@ -1,3 +1,13 @@
+<?php 
+	session_start(); 
+
+	if (!isset($_SESSION['username'])) {
+		$_SESSION['msg'] = "You must log in first";
+		header('location: login.php');
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,16 +75,38 @@
             <span>something simple.</span>
             <i class="leaf icon"></i>
           </div>
-          <a href="index.php" class="item">Home</a>
+          <a class="active item">Home</a>
           <a class="item">About</a>
           <a class="item">Team</a>
           <a class="item">Contact</a>
           <div class="right item">
-            <a class="ui green button" href="signin.php">Log in</a>
-            <a class="ui green button" href="signup.php">Sign Up</a>
+            <h2>Welcome, <?php echo $_SESSION['username']; ?> !</h2>
+            <a class="ui green button" href="profile.php">Profile</a>
+            <a class="ui green button" href="index.php">Log Out</a>
           </div>
         </div>
       </div>
+
+      <!-- HEADER CONTENTS -->
+      <div class="ui container">
+        <!-- LEFT SIDE TEXTS -->
+        <div class="eight wide column">
+          <h1>something simple.</h1>
+          <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+  
+          <div class="ui huge olive button">Get Started <i class="right arrow icon"></i></div>
+          <div class="ui container">
+            <a href="#">
+              <button class="ui medium black button">Learn more</button>
+            </a>
+            <a href="#">
+              <button class="ui medium black button">Track order</button>
+            </a>
+          </div>
+        </div>
+        <!-- RIGHT SIDE IMAGES -->
+      </div>
+      
     </section>
 
   </div>
