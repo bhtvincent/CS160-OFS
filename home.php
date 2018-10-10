@@ -85,6 +85,14 @@
           <a class="item">Contact</a>
           <div class="right item">
             <h3>Welcome, <?php echo $_SESSION['username']; ?>!</h3>
+            <a href="pantry.php">
+              <div class="ui vertical animated green button" tabindex="0">
+                <div class="hidden content">Shop</div>
+                <div class="visible content">
+                  <i class="shop icon"></i>
+                </div>
+              </div>
+            </a>
             <a class="ui primary button" href="profile.php">Profile</a>
             <a class="ui negative button" href="index.php">Log Out</a>
           </div>
@@ -96,7 +104,7 @@
         <!-- LEFT SIDE TEXTS -->
         <div class="eight wide column">
           <h1>something simple.</h1>
-          <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+          <h2>We Make Bananas That Can Dance.</h2>
           <a href="pantry.php">
             <div class="ui huge olive button">Get Started <i class="right arrow icon"></i></div>
           </a>
