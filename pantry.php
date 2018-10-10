@@ -1,3 +1,13 @@
+<?php 
+  session_start(); 
+
+  if (!isset($_SESSION['username'])) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+  }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +19,7 @@
 
   <style type="text/css">
 
-    .masthead {
+    #pantry {
       min-height: 700px;
       padding: 0.5em 0em;
       background: #F5EAD1 url('images/web-graphics/leaf-watermark.png');
@@ -20,26 +30,29 @@
       bottom: -2em;
     }
 
-    .masthead .container .header span {
+    #pantry .container .header span {
       font-family: 'Pacifico', cursive;
     }
 
-    .masthead .container .header i {
+    #pantry .container .header i {
       padding: 0 0.5em;
     }
 
-    .masthead .container .right .button {
+    #pantry .container .right .button {
       margin: 0 1em !important;
     }
 
-    .masthead .container h1 {
+    #pantry .container .right h3 {
+      margin: 0 1em !important;
+    }
+
+    #pantry .container h1 {
       font-size: 5em;
-      margin-top: 2em;
       margin-bottom: 0em;
       font-family: 'Pacifico', cursive;
     }
 
-    .masthead .container .eight .button {
+    #pantry .container .eight .button {
       margin-top: 1.5em;
       margin-right: 1.5em;
     }
@@ -56,7 +69,7 @@
   <div class="pusher">
 
     <!-- MASTER HEAD -->
-    <section class="masthead">
+    <section id="pantry">
       
       <!-- NAV BAR -->
       <div class="ui container">
@@ -65,16 +78,26 @@
             <span>something simple.</span>
             <i class="leaf icon"></i>
           </div>
-          <a href="index.php" class="item">Home</a>
+          <a class="active item">Home</a>
           <a class="item">About</a>
           <a class="item">Team</a>
           <a class="item">Contact</a>
           <div class="right item">
-            <a class="ui green button" href="signin.php">Log in</a>
-            <a class="ui green button" href="signup.php">Sign Up</a>
+            <h3>Welcome, <?php echo $_SESSION['username']; ?>!</h3>
+            <a class="ui primary button" href="profile.php">Profile</a>
+            <a class="ui negative button" href="index.php">Log Out</a>
           </div>
         </div>
       </div>
+
+      <div class="ui container">
+        <div class="ui left aligned grid container">
+          <div class="row">
+            <h1>Pantry</h1>
+          </div>
+        </div>
+      </div>      
+
     </section>
 
   </div>
