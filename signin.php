@@ -10,7 +10,14 @@
 
   <style type="text/css">
     body {
-      background-color: #F5EAD1;
+      min-height: 700px;
+      padding: 0.5em 0em;
+      background: #F5EAD1 url('images/web-graphics/leaf-watermark.png');
+      background-size: 600px;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      left: -2em;
+      bottom: -2em;
     }
     body > .grid {
       height: 100%;
