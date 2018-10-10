@@ -30,6 +30,10 @@
       bottom: -2em;
     }
 
+    #pantry .container {
+      margin-bottom: 2em;
+    }
+
     #pantry .container .header span {
       font-family: 'Pacifico', cursive;
     }
@@ -46,7 +50,7 @@
       margin: 0 1em !important;
     }
 
-    #pantry .container h1 {
+    #pantry .container .row .left h1 {
       font-size: 5em;
       margin-bottom: 0em;
       font-family: 'Pacifico', cursive;
@@ -55,6 +59,11 @@
     #pantry .container .eight .button {
       margin-top: 1.5em;
       margin-right: 1.5em;
+    }
+
+    #pantry .container .header > div {
+      display: inline-block;
+      vertical-align: bottom;
     }
 
 
@@ -78,7 +87,7 @@
             <span>something simple.</span>
             <i class="leaf icon"></i>
           </div>
-          <a class="active item">Home</a>
+          <a class="item">Home</a>
           <a class="item">About</a>
           <a class="item">Team</a>
           <a class="item">Contact</a>
@@ -90,13 +99,132 @@
         </div>
       </div>
 
-      <div class="ui container">
-        <div class="ui left aligned grid container">
-          <div class="row">
+      <div class="ui grid container">
+        <div class="bottom aligned row">
+          <div class="ui left aligned left floated six wide column">
             <h1>Pantry</h1>
           </div>
+          <div class="ui right aligned right floated six wide column">
+            <div class="ui right aligned category search">
+              <div class="ui icon input">
+                <input class="prompt" type="text" placeholder="Search items...">
+                <i class="search icon"></i>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>      
+      </div>   
+
+      <div class="ui grid container">
+        <div class="ui four doubling cards">
+
+          <div class="card">
+            <div class="image">
+              <img src="https://picsum.photos/200/?random">
+            </div>
+            <div class="content">
+              <a class="header">Banana</a>
+              <div class="meta">
+                <span class="date">$5 per bundle</span> <br>
+                <span class="date">1 lb per bundle</span>
+              </div>
+              <div class="description">
+                Banana is very healthy for your body.
+              </div>
+            </div>
+              <div class="extra content">
+                <span>Quantity:</span>
+                <span class="ui input">
+                  <input type="number" placeholder="0">
+                </span>
+              </div>
+            <button class="ui bottom attached olive button">
+              <i class="shop icon"></i>
+              Add to cart
+            </button>
+          </div>
+
+          <div class="card">
+            <div class="image">
+              <img src="https://picsum.photos/200/?random">
+            </div>
+            <div class="content">
+              <a class="header">Banana</a>
+              <div class="meta">
+                <span class="date">$5 per bundle</span> <br>
+                <span class="date">1 lb per bundle</span>
+              </div>
+              <div class="description">
+                Banana is very healthy for your body.
+              </div>
+            </div>
+              <div class="extra content">
+                <span>Quantity:</span>
+                <span class="ui input">
+                  <input type="number" placeholder="0">
+                </span>
+              </div>
+            <button class="ui bottom attached olive button">
+              <i class="shop icon"></i>
+              Add to cart
+            </button>
+          </div>
+
+          <div class="card">
+            <div class="image">
+              <img src="https://picsum.photos/200/?random">
+            </div>
+            <div class="content">
+              <a class="header">Banana</a>
+              <div class="meta">
+                <span class="date">$5 per bundle</span> <br>
+                <span class="date">1 lb per bundle</span>
+              </div>
+              <div class="description">
+                Banana is very healthy for your body.
+              </div>
+            </div>
+              <div class="extra content">
+                <span>Quantity:</span>
+                <span class="ui input">
+                  <input type="number" placeholder="0">
+                </span>
+              </div>
+            <button class="ui bottom attached olive button">
+              <i class="shop icon"></i>
+              Add to cart
+            </button>
+          </div>
+
+          <div class="card">
+            <div class="image">
+              <img src="https://picsum.photos/200/?random">
+            </div>
+            <div class="content">
+              <a class="header">Banana</a>
+              <div class="meta">
+                <span class="date">$5 per bundle</span> <br>
+                <span class="date">1 lb per bundle</span>
+              </div>
+              <div class="description">
+                Banana is very healthy for your body.
+              </div>
+            </div>
+              <div class="extra content">
+                <span>Quantity:</span>
+                <span class="ui input">
+                  <input type="number" placeholder="0">
+                </span>
+              </div>
+            <button class="ui bottom attached olive button">
+              <i class="shop icon"></i>
+              Add to cart
+            </button>
+          </div>
+          
+        </div>
+      </div>
+
 
     </section>
 
