@@ -39,7 +39,7 @@
     }
 
     .masthead .container .right .button {
-      margin: 0 1em !important;
+      margin: 0 1em !important; 
     }
 
     .masthead .container h1 {

@@ -44,42 +44,42 @@
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input type="text" name="first" placeholder="First Name">
+              <input type="text" name="first_name" placeholder="First Name" value="<?php echo $first_name; ?>">
             </div>
           </div>
 
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input type="text" name="last" placeholder="Last Name">
+              <input type="text" name="last_name" placeholder="Last Name" value="<?php echo $last_name; ?>">
             </div>
           </div>
 
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input type="text" name="username" placeholder="Username">
+              <input type="text" name="username" placeholder="Username" value="<?php echo $username; ?>">
             </div>
           </div>
 
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input type="text" name="phone" placeholder="Phone Number" >
+              <input type="text" name="phone_number" placeholder="Phone Number" value="<?php echo $phone_number; ?>">
             </div>
           </div>
           
           <div class="field">
             <div class="ui left icon input">
               <i class="envelope icon"></i>
-              <input type="text" name="city" placeholder="City">
+              <input type="text" name="city" placeholder="City" value="<?php echo $city; ?>">
             </div>
           </div>
           
           <div class="field">
             <div class="ui left icon input">
               <i class="lock icon"></i>
-              <input type="text" name="address" placeholder="Street Address">
+              <input type="text" name="address" placeholder="Street Address" value="<?php echo $address; ?>">
             </div>
           </div>
           
