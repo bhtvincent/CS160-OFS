@@ -130,10 +130,12 @@
               $item_weight = $item['item_weight'];
               $weight_unit = $item['item_weight_unit'];
               $item_description = $item['item_desc'];
+              $image = $item['image'];
+              // <img src='https://picsum.photos/200/?random'>
 
               echo "<div class='card'>
                 <div class='image'>
-                  <img src='https://picsum.photos/200/?random'>
+                  <img src='$image'>
                 </div>
                 <div class='content'>
                   <a class='header'>".$item_name."</a>
