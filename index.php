@@ -82,7 +82,7 @@
         <div class="eight wide column">
           <h1>something simple.</h1>
           <h2>We Make Bananas That Can Dance.</h2>
-          <a href="pantry.php">
+          <a href="signin.php">
             <div class="ui huge olive button">Get Started <i class="right arrow icon"></i></div>
           </a>
           <div class="ui container">

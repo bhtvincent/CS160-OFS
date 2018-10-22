@@ -54,6 +54,10 @@
       display: inline-block;
       vertical-align: bottom;
     }
+    /* .image {
+      width: 217.5px;
+      height: 217.5px;
+    } */
   </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
@@ -74,7 +78,7 @@
             <span>something simple.</span>
             <i class="leaf icon"></i>
           </div>
-          <a class="item">Home</a>
+          <a class="item" href="home.php">Home</a>
           <a class="item">About</a>
           <a class="item">Team</a>
           <a class="item">Contact</a>
@@ -94,10 +98,14 @@
           <form action="Pantry.php" method="GET">
             <div class="ui right aligned right floated six wide column">
               <div class="ui right aligned category search">
-                <div class="ui icon input">
+                <!-- <div class="ui icon input">
                   <input class="prompt" type="text" name="query" placeholder="Search items..."/>
                   <input type="submit" value="Search"/>
                   <i class="search icon"></i>
+                </div> -->
+                <div class="ui action input">
+                  <input type="text" name="query" placeholder="Search Items...">
+                  <button class="ui button">Search</button>
                 </div>
               </div>
             </div>

@@ -93,7 +93,7 @@
                 </div>
               </div>
             </a>
-            <a class="ui primary button" href="profile.php">Profile</a>
+            <a class="ui primary button" href="profile.php">Account</a>
             <a class="ui negative button" href="index.php">Log Out</a>
           </div>
         </div>

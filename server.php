@@ -7,8 +7,12 @@
 	$first_name = "";
 	$last_name = "";
 	$phone_number = "";
-	$city = "";
 	$address = "";
+	$city = "";
+	$state = "";
+	$zipcode = "";
+	$card_type = "";
+	$card_number = "";
 	$errors = array(); 
 	$_SESSION['success'] = "";
 
@@ -91,8 +95,12 @@
 		$last_name = mysqli_real_escape_string($db, $_POST['last_name']);
 		$username = mysqli_real_escape_string($db, $_POST['username']);
 		$phone_number = mysqli_real_escape_string($db, $_POST['phone_number']);
-		$city = mysqli_real_escape_string($db, $_POST['city']);
 		$address = mysqli_real_escape_string($db, $_POST['address']);
+		$city = mysqli_real_escape_string($db, $_POST['city']);
+		$state = mysqli_real_escape_string($db, $_POST['state']);
+		$zipcode = mysqli_real_escape_string($db, $_POST['zipcode']);
+		$card_type = mysqli_real_escape_string($db, $_POST['card_type']);
+		$card_number = mysqli_real_escape_string($db, $_POST['card_number']);
 		
 		// Form Validation
 		if (empty($first_name)) { array_push($errors, "First name is required"); }
@@ -105,15 +113,12 @@
 		// If no errors, proceed to create user profile
 		if (count($errors) == 0) {
 
-			$query = "INSERT INTO customer_profile (customer_id, first_name, last_name, username, phone_number, city_id, address) 
-					  VALUES('', '$first_name', '$last_name', '$username', '$phone_number', '$city', $address)";
+			$query = "INSERT INTO customer_profile (customer_id, first_name, last_name, username, phone_number, address, city, state, zipcode, card_type, card_number) 
+					  VALUES('', '$first_name', '$last_name', '$username', '$phone_number', '$address', '$city', '$state', '$zipcode', '$card_type', '$card_number')";
 			mysqli_query($db, $query);
 
 			header('location: profile.php');
-
-			// $_SESSION['username'] = $username;
-			// $_SESSION['success'] = "You are now logged in";
-			// header('location: home.php');
+			
 		}
 	}
 
