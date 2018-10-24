@@ -12,10 +12,17 @@
 
   <!-- Site Properties -->
   <title>Something Simple</title>
+  <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
   <style type="text/css">
+
+    #toggle .text {
+      display: none;
+    }
+
     #pantry {
       min-height: 700px;
       padding: 0.5em 0em;
@@ -65,6 +72,58 @@
 </head>
 <body>
 
+  <!-- SIDEBAR SHOPPING CART -->
+  <div class="ui vertical inverted sidebar menu">
+    <div class="item">
+      <h1>Shopping Cart</h1>
+      <div class="ui grid">
+
+        <!-- WEIGHT  -->
+        <div class="row">
+          <div class="eight wide column">
+            <span>Weight:</span>
+          </div>
+          <div class="four wide column right floated">
+            <span>14.3 lbs</span>
+          </div>
+        </div>
+
+        <!-- TOTAL BEFORE TAX -->
+        <div class="row">
+          <div class="eight wide column">
+            <span>Total before tax:</span>
+          </div>
+          <div class="four wide column right floated">
+            <span>$53.8</span>
+          </div>
+        </div>
+
+        <!-- ESTIMATED TAX -->
+        <div class="row">
+          <div class="eight wide column">
+            <span>Estimated tax:</span>
+          </div>
+          <div class="four wide column right floated">
+            <span>$4.84</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <!-- ORDER TOTAL -->
+      <div class="row">
+        <div class="eight wide column">
+          <span><h3>Order Total:</h3></span>
+        </div>
+        <div class="four wide column right floated">
+          <span><h3>$58.64</h3></span>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <button class="ui green button">Checkout</button>
+    </div>
+  </div>
   
   <div class="pusher">
 
@@ -88,6 +147,12 @@
             <a class="ui negative button" href="index.php">Log Out</a>
           </div>
         </div>
+      </div>
+
+      <!-- STICKY BUTTON -->
+      <div id="toggle" class="ui sticky green massive launch right attached fixed button">
+        <i class="cart plus icon"></i>
+        <span class="text">Cart</span>
       </div>
 
       <div class="ui grid container">
@@ -176,6 +241,19 @@
     </section>
 
   </div>
+
+  <script type="text/javascript">
+  $('#toggle').click(function(){
+    $('.ui.sidebar').sidebar('toggle');
+  });
+  $(".launch.button").mouseenter(function(){
+        $(this).stop().animate({width: '150px'}, 200, 
+             function(){$(this).find('.text').show();});
+    }).mouseleave(function (event){
+        $(this).find('.text').hide();
+        $(this).stop().animate({width: '70px'}, 200);
+    });
+  </script>
 
 
 </body>
