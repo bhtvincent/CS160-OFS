@@ -10,7 +10,14 @@
 
   <style type="text/css">
     body {
-      background-color: #F5EAD1;
+      min-height: 700px;
+      padding: 0.5em 0em;
+      background: #F5EAD1 url('images/web-graphics/leaf-watermark.png');
+      background-size: 600px;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      left: -2em;
+      bottom: -2em;
     }
     body > .grid {
       height: 100%;
@@ -69,7 +76,7 @@
         If you don't have an account yet. <a href="signup.php">Sign up here.</a>
       </div>
 
-      <a href="home.php">    
+      <a href="index.php">    
         <button class="ui fluid large primary button">
           <i class="left arrow icon "></i>
           Home

@@ -1,3 +1,13 @@
+<?php 
+	session_start(); 
+
+	if (!isset($_SESSION['username'])) {
+		$_SESSION['msg'] = "You must log in first";
+		header('location: login.php');
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +39,10 @@
     }
 
     .masthead .container .right .button {
+      margin: 0 1em !important; 
+    }
+
+    .masthead .container .right h3 {
       margin: 0 1em !important;
     }
 
@@ -70,8 +84,17 @@
           <a class="item">Team</a>
           <a class="item">Contact</a>
           <div class="right item">
-            <a class="ui green button" href="profile.php">Profile</a>
-            <a class="ui green button" href="index.php">Log Out</a>
+            <h3>Welcome, <?php echo $_SESSION['username']; ?>!</h3>
+            <a href="pantry.php">
+              <div class="ui vertical animated green button" tabindex="0">
+                <div class="hidden content">Shop</div>
+                <div class="visible content">
+                  <i class="shop icon"></i>
+                </div>
+              </div>
+            </a>
+            <a class="ui primary button" href="profile.php">Account</a>
+            <a class="ui negative button" href="index.php">Log Out</a>
           </div>
         </div>
       </div>
@@ -81,8 +104,10 @@
         <!-- LEFT SIDE TEXTS -->
         <div class="eight wide column">
           <h1>something simple.</h1>
-          <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-          <div class="ui huge olive button">Get Started <i class="right arrow icon"></i></div>
+          <h2>We Make Bananas That Can Dance.</h2>
+          <a href="pantry.php">
+            <div class="ui huge olive button">Get Started <i class="right arrow icon"></i></div>
+          </a>
           <div class="ui container">
             <a href="#">
               <button class="ui medium black button">Learn more</button>

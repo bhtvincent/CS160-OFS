@@ -1,15 +1,15 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
 
   <!-- Site Properties -->
-  <title>Something Simple</title>
+  <title>Your Profile</title>
+
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
-  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
   <style type="text/css">
-
-    .masthead {
+    body {
       min-height: 700px;
       padding: 0.5em 0em;
       background: #F5EAD1 url('images/web-graphics/leaf-watermark.png');
@@ -19,89 +19,132 @@
       left: -2em;
       bottom: -2em;
     }
-
-    .masthead .container .header span {
-      font-family: 'Pacifico', cursive;
+    body > .grid {
+      height: 100%;
     }
-
-    .masthead .container .header i {
-      padding: 0 0.5em;
+    .column {
+      max-width: 450px;
     }
-
-    .masthead .container .right .button {
-      margin: 0 1em !important;
+    .input {
+      width: 100%;
     }
-
-    .masthead .container h1 {
-      font-size: 5em;
-      margin-top: 2em;
-      margin-bottom: 0em;
-      font-family: 'Pacifico', cursive;
-    }
-
-    .masthead .container .eight .button {
-      margin-top: 1.5em;
-      margin-right: 1.5em;
-    }
-
-
   </style>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
-
 </head>
 <body>
 
-  
-  <div class="pusher">
-
-    <!-- MASTER HEAD -->
-    <section class="masthead">
-      
-      <!-- NAV BAR -->
-      <div class="ui container">
-        <div class="ui large secondary menu">
-          <div class="header item">
-            <span>something simple.</span>
-            <i class="leaf icon"></i>
-          </div>
-          <a class="active item">Home</a>
-          <a class="item">About</a>
-          <a class="item">Team</a>
-          <a class="item">Contact</a>
-          <div class="right item">
-            <a class="ui green button" href="createProfile.php">Create Your Profile!</a>
-            <!-- <a class="ui green button" href="logout.php">Log Out</a> -->
-          </div>
-        </div>
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui header">
+      <div class="content">
+        Profile
       </div>
+    </h2>
+    
+    <form method="post" actions="profile.php">
 
-      <!-- HEADER CONTENTS -->
-      <div class="ui container">
-        <!-- LEFT SIDE TEXTS -->
-        <!-- <div class="eight wide column"> -->
-          <!-- <h1>something simple.</h1> -->
-          <!-- <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2> -->
-          <!-- <div class="ui huge olive button">Get Started <i class="right arrow icon"></i></div> -->
-          <!-- <div class="ui container"> -->
-            <!-- <a href="#"> -->
-              <!-- <button class="ui medium black button">Learn more</button> -->
-            <!-- </a> -->
-            <!-- <a href="#"> -->
-              <!-- <button class="ui medium black button">Track order</button> -->
-            <!-- </a> -->
-          <!-- </div> -->
+      <?php include('errors.php'); ?>
+
+      <form class="ui large form">
+
+        <div class="ui stacked segment">
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="first_name" placeholder="First Name" value="<?php echo $first_name; ?>">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="last_name" placeholder="Last Name" value="<?php echo $last_name; ?>">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="username" placeholder="Username" value="<?php echo $username; ?>">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="phone_number" placeholder="Phone Number" value="<?php echo $phone_number; ?>">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="text" name="address" placeholder="Address" value="<?php echo $address; ?>">
+            </div>
+          </div>
+          
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="envelope icon"></i>
+              <input type="text" name="city" placeholder="City" value="<?php echo $city; ?>">
+            </div>
+          </div>
+          
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="text" name="state" placeholder="State" value="<?php echo $state; ?>">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="text" name="zipcode" placeholder="Zipcode" value="<?php echo $zipcode; ?>">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="text" name="card_type" placeholder="Card Type" value="<?php echo $card_type; ?>">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="text" name="card_number" placeholder="Card Number" value="<?php echo $card_number; ?>">
+            </div>
+          </div>
+          
+          <div class="field">
+            <button type="submit" class="ui large fluid green submit button" name="create_profile">Create</button>
+          </div>
+          <!-- <div class="ui fluid large green submit button" name="reg_user">Sign up</div> -->
+
         </div>
-        <!-- RIGHT SIDE IMAGES -->
-      </div>
+
+      </form>
+
+      <!-- <div class="ui message">
+        Have an account already? <a href="signin.php">Log in here.</a>
+      </div> -->
       
-    </section>
+      <a href="home.php">    
+        <button class="ui fluid large primary button">
+          <i class="left arrow icon "></i>
+          Home
+        </button>
+      </a>
+
+    </form>
 
   </div>
 
+</div>
 
 </body>
 
 </html>
-
 
