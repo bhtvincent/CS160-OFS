@@ -121,7 +121,9 @@
       </div>
     </div>
     <div class="item">
-      <button class="ui green button">Checkout</button>
+      <a href="payment.php">
+        <button class="ui green button">Checkout</button>
+      </a>
     </div>
   </div>
   
