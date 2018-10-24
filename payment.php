@@ -44,9 +44,9 @@
     #payment .container .right h3 {
       margin: 0 1em !important;
     }
-    #payment .container .row .left h1 {
+    #payment .container .row h1 {
       font-size: 5em;
-      margin-bottom: 0em;
+      margin-bottom: 0.5em;
       font-family: 'Pacifico', cursive;
     }
     /* .image {
@@ -84,10 +84,15 @@
         </div>
       </div>
 
-      <div class="ui grid container">
-        <div class="bottom aligned row">
-          <div class="ui left aligned left floated">
-            <h1>Payment</h1>
+      <div class="ui container">
+        <div class="row">
+          <h1>Payment</h1>
+        </div>
+        <div class="row">
+          <div class="ui large breadcrumb">
+            <a href="pantry.php" class="section">Pantry</a>
+            <i class="right chevron icon divider"></i>
+            <div class="active section">Payment</div>
           </div>
         </div>
       </div>   
