@@ -36,16 +36,16 @@
     #pantry .container {
       margin-bottom: 2em;
     }
-    #pantry .container .header span {
+    #pantry .navbar .header span {
       font-family: 'Pacifico', cursive;
     }
-    #pantry .container .header i {
+    #pantry .navbar .header i {
       padding: 0 0.5em;
     }
-    #pantry .container .right .button {
+    #pantry .navbar .right .button {
       margin: 0 1em !important;
     }
-    #pantry .container .right h3 {
+    #pantry .navbar .right h3 {
       margin: 0 1em !important;
     }
     #pantry .container .row .left h1 {
@@ -133,7 +133,7 @@
     <section id="pantry">
       
       <!-- NAV BAR -->
-      <div class="ui container">
+      <div class="navbar ui container">
         <div class="ui large secondary menu">
           <div class="header item">
             <span>something simple.</span>
@@ -171,8 +171,10 @@
                   <i class="search icon"></i>
                 </div> -->
                 <div class="ui action input">
-                  <input type="text" name="query" placeholder="Search Items...">
-                  <button class="ui button">Search</button>
+                  <input type="text" placeholder="Search...">
+                  <button class="ui icon button">
+                    <i class="search icon"></i>
+                  </button>
                 </div>
               </div>
             </div>
