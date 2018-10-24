@@ -95,11 +95,80 @@
             <div class="active section">Payment</div>
           </div>
         </div>
-      </div>   
+      </div>
+      
+      <div class="ui raised segments container">
+        <div class="ui top attached info message">
+          Please enter your payment information.
+        </div>
+        <div class="ui container">
+
+
+          <!-- CARDHOLDER'S NAME -->
+          <div class="ui fluid input">
+            <input placeholder="Cardholder's Name" type="text">
+          </div>
+
+          <!-- CARDHOLDER'S ADDRESS -->
+          <div class="ui fluid input">
+            <input placeholder="Address" type="text">
+          </div>
+          <div class="ui grid">
+            <div class="row">
+              <div class="ui six wide column input">
+                <input placeholder="City" type="text">
+              </div>
+              <div class="ui two wide column input">
+                <input placeholder="State" type="text">
+              </div>
+              <div class="ui four wide column input">
+                <input placeholder="Zip Code" type="text">
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD INFORMATION -->
+          <div class="ui right labeled input">
+            <input placeholder="Card Number" type="text">
+            <div class="ui dropdown label">
+              <div class="text">Card Type</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item">VISA</div>
+                  <div class="item">Mastercard</div>
+                  <div class="item">Discover</div>
+              </div>
+            </div>
+          </div>
+          <div class="ui grid">
+            <div class="row">
+              <div class="ui eight wide column input">
+                <input placeholder="Expiration Date" type="date">
+              </div>
+              <div class="ui four wide column input">
+                <input placeholder="Security Code" type="text">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </section>
 
   </div>
 
+  <script>
+  $(document)
+    .ready(function() {
+      $('.ui.dropdown')
+        .dropdown({
+          on: 'click'
+        })
+      ;
+    })
+  ;
+  </script>
 
 </body>
 
