@@ -41,13 +41,22 @@
     #payment .container .right .button {
       margin: 0 1em !important;
     }
-    #payment .container .right h3 {
+    #payment .navbar .container .right h3 {
       margin: 0 1em !important;
     }
     #payment .container .row h1 {
       font-size: 5em;
       margin-bottom: 0.5em;
       font-family: 'Pacifico', cursive;
+    }
+    #payment .container .message {
+      margin-bottom: 2em;
+    }
+    #payment .container .field {
+      margin-bottom: 1em;
+    }
+    #payment .container .column {
+      margin-bottom: 0;
     }
     /* .image {
       width: 217.5px;
@@ -66,23 +75,26 @@
     <section id="payment">
       
       <!-- NAV BAR -->
-      <div class="ui container">
-        <div class="ui large secondary menu">
-          <div class="header item">
-            <span>something simple.</span>
-            <i class="leaf icon"></i>
-          </div>
-          <a class="item" href="home.php">Home</a>
-          <a class="item">About</a>
-          <a class="item">Team</a>
-          <a class="item">Contact</a>
-          <div class="right item">
-            <h3>Welcome, <?php echo $_SESSION['username']; ?>!</h3>
-            <a class="ui primary button" href="profile.php">Profile</a>
-            <a class="ui negative button" href="index.php">Log Out</a>
+      <div class="navbar">
+        <div class="ui container">
+          <div class="ui large secondary menu">
+            <div class="header item">
+              <span>something simple.</span>
+              <i class="leaf icon"></i>
+            </div>
+            <a class="item" href="home.php">Home</a>
+            <a class="item">About</a>
+            <a class="item">Team</a>
+            <a class="item">Contact</a>
+            <div class="right item">
+              <h3>Welcome, <?php echo $_SESSION['username']; ?>!</h3>
+              <a class="ui primary button" href="profile.php">Profile</a>
+              <a class="ui negative button" href="index.php">Log Out</a>
+            </div>
           </div>
         </div>
       </div>
+
 
       <div class="ui container">
         <div class="row">
@@ -97,61 +109,137 @@
         </div>
       </div>
       
-      <div class="ui raised segments container">
-        <div class="ui top attached info message">
-          Please enter your payment information.
+      <div class="ui raised segment container">
+        <div class="ui grid">
+          <div class="ui ten wide column">
+            <div class="ui info message">
+              Please enter your payment information.
+            </div>
+            <div class="ui container">
+
+              <form class="ui form">
+              
+                <!-- CARDHOLDER'S NAME -->
+                <div class="field">
+                  <label>Cardholder's Name</label>
+                  <input type="text">
+                </div>
+
+                <!-- CARDHOLDER'S ADDRESS -->
+                <div class="field">
+                  <label>Cardholder's Address</label>
+                  <input type="text">
+                </div>
+                <div class="ui grid">
+                  <div class="ui nine wide column field">
+                    <label>City</label>
+                    <input type="text">
+                  </div>
+                  <div class="ui three wide column field">
+                    <label>State</label>
+                    <input type="text">
+                  </div>
+                  <div class="ui four wide column field">
+                    <label>Zip Code</label>
+                    <input type="text">
+                  </div>
+                </div>
+
+                <!-- CARD INFORMATION -->
+                <div class="ui grid">
+                  <div class="ui thirteen wide column field">
+                    <label>Card Number</label>
+                    <div class="ui right labeled input">
+                      <input type="text">
+                      <div class="ui dropdown label">
+                        <div class="text">Card Type</div>
+                          <i class="dropdown icon"></i>
+                          <div class="menu">
+                            <div class="item">VISA</div>
+                            <div class="item">Mastercard</div>
+                            <div class="item">Discover</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui three wide column field">
+                    <label>CVC</label>
+                    <input type="password">
+                  </div>
+                </div>
+
+                <div class="ui grid">
+                  <div class="ui eight wide column field">
+                    <label>Expiration Date</label>
+                    <input type="date">
+                  </div>
+                  <div class="ui eight wide column field">
+                    <label>Email Address</label>
+                    <input type="text">
+                  </div>
+                </div>
+
+              </form>
+              
+            </div>
+          </div>
+          <div class="ui six wide column">
+            <h1>Order Summary</h1>
+            <div class="ui grid">
+
+              <!-- WEIGHT  -->
+              <div class="row">
+                <div class="ten wide column">
+                  <span>Weight:</span>
+                </div>
+                <div class="six wide column right floated right aligned">
+                  <span>14.3 lbs</span>
+                </div>
+              </div>
+
+              <!-- TOTAL BEFORE TAX -->
+              <div class="row">
+                <div class="ten wide column">
+                  <span>Total before tax:</span>
+                </div>
+                <div class="six wide column right floated right aligned">
+                  <span>$53.8</span>
+                </div>
+              </div>
+
+              <!-- ESTIMATED TAX -->
+              <div class="row">
+                <div class="ten wide column">
+                  <span>Estimated tax:</span>
+                </div>
+                <div class="six wide column right floated right aligned">
+                  <span>$4.84</span>
+                </div>
+              </div>
+
+              <!-- ORDER TOTAL -->
+              <div class="row">
+                <div class="ten wide column">
+                  <span><h3>Order Total:</h3></span>
+                </div>
+                <div class="six wide column right floated right aligned">
+                  <span><h3>$58.64</h3></span>
+                </div>
+              </div>
+
+              <!-- BUTTON -->
+              <div class="row">
+                <div class="sixteen wide column">
+                  <a href="payment.php">
+                    <button class="ui fluid green button">Proceed to shipping</button>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
-        <div class="ui container">
-
-
-          <!-- CARDHOLDER'S NAME -->
-          <div class="ui fluid input">
-            <input placeholder="Cardholder's Name" type="text">
-          </div>
-
-          <!-- CARDHOLDER'S ADDRESS -->
-          <div class="ui fluid input">
-            <input placeholder="Address" type="text">
-          </div>
-          <div class="ui grid">
-            <div class="row">
-              <div class="ui six wide column input">
-                <input placeholder="City" type="text">
-              </div>
-              <div class="ui two wide column input">
-                <input placeholder="State" type="text">
-              </div>
-              <div class="ui four wide column input">
-                <input placeholder="Zip Code" type="text">
-              </div>
-            </div>
-          </div>
-
-          <!-- CARD INFORMATION -->
-          <div class="ui right labeled input">
-            <input placeholder="Card Number" type="text">
-            <div class="ui dropdown label">
-              <div class="text">Card Type</div>
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                  <div class="item">VISA</div>
-                  <div class="item">Mastercard</div>
-                  <div class="item">Discover</div>
-              </div>
-            </div>
-          </div>
-          <div class="ui grid">
-            <div class="row">
-              <div class="ui eight wide column input">
-                <input placeholder="Expiration Date" type="date">
-              </div>
-              <div class="ui four wide column input">
-                <input placeholder="Security Code" type="text">
-              </div>
-            </div>
-          </div>
-
-        </div>
+        
       </div>
 
     </section>
