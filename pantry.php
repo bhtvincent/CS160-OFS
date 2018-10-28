@@ -23,6 +23,10 @@
       display: none;
     }
 
+    .sidebar .item .list .button i {
+      margin: 0 !important;
+    }
+
     #pantry {
       min-height: 700px;
       padding: 0.5em 0em;
@@ -135,7 +139,8 @@
       <div class="ui middle aligned divided list">
         <div class="item">
           <div class="right floated content">
-            <div class="ui button">Add</div>
+            <div class="ui mini button"><i class="ui add icon"></i></div>
+            <div class="ui mini button"><i class="ui minus icon"></i></div>
           </div>
           <img class="ui avatar image" src="/images/avatar2/small/lena.png">
           <div class="content">
@@ -144,7 +149,8 @@
         </div>
         <div class="item">
           <div class="right floated content">
-            <div class="ui button">Add</div>
+            <div class="ui mini button"><i class="ui add icon"></i></div>
+            <div class="ui mini button"><i class="ui minus icon"></i></div>
           </div>
           <img class="ui avatar image" src="/images/avatar2/small/lindsay.png">
           <div class="content">
@@ -153,7 +159,8 @@
         </div>
         <div class="item">
           <div class="right floated content">
-            <div class="ui button">Add</div>
+            <div class="ui mini button"><i class="ui add icon"></i></div>
+            <div class="ui mini button"><i class="ui minus icon"></i></div>
           </div>
           <img class="ui avatar image" src="/images/avatar2/small/mark.png">
           <div class="content">
@@ -162,7 +169,8 @@
         </div>
         <div class="item">
           <div class="right floated content">
-            <div class="ui button">Add</div>
+            <div class="ui mini button"><i class="ui add icon"></i></div>
+            <div class="ui mini button"><i class="ui minus icon"></i></div>
           </div>
           <img class="ui avatar image" src="/images/avatar2/small/molly.png">
           <div class="content">
