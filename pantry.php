@@ -187,7 +187,6 @@
     <section id="pantry">
       
       <!-- NAV BAR -->
-<<<<<<< HEAD
       <div class="navbar ui container">
         <div class="ui large secondary menu">
           <div class="header item">
@@ -202,24 +201,6 @@
             <h3>Welcome, <?php echo $_SESSION['username']['username']; ?>!</h3>
             <a class="ui primary button" href="profile.php">Profile</a>
             <a class="ui negative button" href="index.php">Log Out</a>
-=======
-      <div class="navbar">
-        <div class="ui container">
-          <div class="ui large secondary menu">
-            <div class="header item">
-              <span>something simple.</span>
-              <i class="leaf icon"></i>
-            </div>
-            <a class="item" href="home.php">Home</a>
-            <a class="item">About</a>
-            <a class="item">Team</a>
-            <a class="item">Contact</a>
-            <div class="right item">
-              <h3>Welcome, <?php echo $_SESSION['username']; ?>!</h3>
-              <a class="ui primary button" href="profile.php">Profile</a>
-              <a class="ui negative button" href="index.php">Log Out</a>
-            </div>
->>>>>>> 3834024380efdad5f315f696e6ad371f8315dfc8
           </div>
         </div>
       </div>
