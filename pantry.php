@@ -144,7 +144,7 @@
           <a class="item">Team</a>
           <a class="item">Contact</a>
           <div class="right item">
-            <h3>Welcome, <?php echo $_SESSION['username']; ?>!</h3>
+            <h3>Welcome, <?php echo $_SESSION['username']['username']; ?>!</h3>
             <a class="ui primary button" href="profile.php">Profile</a>
             <a class="ui negative button" href="index.php">Log Out</a>
           </div>

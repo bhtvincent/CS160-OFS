@@ -4,11 +4,11 @@
 	// if (!isset($_SESSION['username'])) {
 	// 	$_SESSION['msg'] = "You must log in first";
 	// 	header('location: login.php');
-  // }
+    // }
   
-  if (!isLoggedIn()) {
+    if (!isAdmin()) {
 		$_SESSION['msg'] = "You must log in first";
-		header('location: login.php');
+		header('location: ../login.php');
 	}
 
 ?>

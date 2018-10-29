@@ -13,6 +13,7 @@
 	$zipcode = "";
 	$card_type = "";
 	$card_number = "";
+	$usertype = "";
 	$errors = array(); 
 	$_SESSION['success'] = "";
 
@@ -77,13 +78,41 @@
 			$results = mysqli_query($db, $query);
 
 			if (mysqli_num_rows($results) == 1) {
-				$_SESSION['username'] = $username;
-				$_SESSION['success'] = "You are now logged in";
-				header('location: home.php');
+				$logged_in_user = mysqli_fetch_assoc($results);
+				if($logged_in_user['user_type'] == 'Admin') {
+					$_SESSION['username'] = $logged_in_user;
+					$_SESSION['success'] = "You are now logged in";
+					header('location: adminHome.php');
+				} else {
+					$_SESSION['username'] = $logged_in_user;
+					$_SESSION['success']  = "You are now logged in";
+					header('location: home.php');
+				}
+				// $_SESSION['username'] = $username;
+				// $_SESSION['success'] = "You are now logged in";
+				// header('location: home.php');
 			} 
 			else {
 				array_push($errors, "Wrong username/password combination");
 			}
+		}
+	}
+
+	function isLoggedIn()
+	{
+		if (isset($_SESSION['username'])) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function isAdmin()
+	{
+		if (isset($_SESSION['username']) && $_SESSION['username']['user_type'] == 'Admin' ) {
+			return true;
+		}else{
+			return false;
 		}
 	}
 
