@@ -23,6 +23,10 @@
       display: none;
     }
 
+    .sidebar .item .list .button i {
+      margin: 0 !important;
+    }
+
     #pantry {
       min-height: 700px;
       padding: 0.5em 0em;
@@ -61,10 +65,11 @@
       display: inline-block;
       vertical-align: bottom;
     }
-    /* .image {
-      width: 217.5px;
-      height: 217.5px;
-    } */
+    #pantry .image img {
+      max-width: 300px;
+      max-height: 300px;
+    }
+
   </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
@@ -73,37 +78,37 @@
 <body>
 
   <!-- SIDEBAR SHOPPING CART -->
-  <div class="ui vertical inverted sidebar menu">
+  <div class="ui vertical inverted wide sidebar menu">
     <div class="item">
-      <h1>Shopping Cart</h1>
+      <h1>Order Summary</h1> <br>
       <div class="ui grid">
 
         <!-- WEIGHT  -->
         <div class="row">
-          <div class="eight wide column">
+          <div class="ten wide column">
             <span>Weight:</span>
           </div>
-          <div class="four wide column right floated">
+          <div class="six wide column right floated right aligned">
             <span>14.3 lbs</span>
           </div>
         </div>
 
         <!-- TOTAL BEFORE TAX -->
         <div class="row">
-          <div class="eight wide column">
+          <div class="ten wide column">
             <span>Total before tax:</span>
           </div>
-          <div class="four wide column right floated">
+          <div class="six wide column right floated right aligned">
             <span>$53.8</span>
           </div>
         </div>
 
         <!-- ESTIMATED TAX -->
         <div class="row">
-          <div class="eight wide column">
+          <div class="ten wide column">
             <span>Estimated tax:</span>
           </div>
-          <div class="four wide column right floated">
+          <div class="six wide column right floated right aligned">
             <span>$4.84</span>
           </div>
         </div>
@@ -111,19 +116,68 @@
     </div>
     <div class="item">
       <!-- ORDER TOTAL -->
-      <div class="row">
-        <div class="eight wide column">
-          <span><h3>Order Total:</h3></span>
-        </div>
-        <div class="four wide column right floated">
-          <span><h3>$58.64</h3></span>
+      <div class="ui grid">
+        <div class="row">
+          <div class="ten wide column">
+            <span><h3>Order Total:</h3></span>
+          </div>
+          <div class="six wide column right floated right aligned">
+            <span><h3>$58.64</h3></span>
+          </div>
         </div>
       </div>
     </div>
     <div class="item">
       <a href="payment.php">
-        <button class="ui green button">Checkout</button>
+        <button class="ui fluid green button">Checkout</button>
       </a>
+    </div>
+
+    <!-- SHOPPING CART -->
+    <div class="item">
+      <h1>Shopping Cart</h1> <br>
+      <div class="ui middle aligned divided list">
+        <div class="item">
+          <div class="right floated content">
+            <div class="ui mini button"><i class="ui add icon"></i></div>
+            <div class="ui mini button"><i class="ui minus icon"></i></div>
+          </div>
+          <img class="ui avatar image" src="/images/avatar2/small/lena.png">
+          <div class="content">
+            Lena
+          </div>
+        </div>
+        <div class="item">
+          <div class="right floated content">
+            <div class="ui mini button"><i class="ui add icon"></i></div>
+            <div class="ui mini button"><i class="ui minus icon"></i></div>
+          </div>
+          <img class="ui avatar image" src="/images/avatar2/small/lindsay.png">
+          <div class="content">
+            Lindsay
+          </div>
+        </div>
+        <div class="item">
+          <div class="right floated content">
+            <div class="ui mini button"><i class="ui add icon"></i></div>
+            <div class="ui mini button"><i class="ui minus icon"></i></div>
+          </div>
+          <img class="ui avatar image" src="/images/avatar2/small/mark.png">
+          <div class="content">
+            Mark
+          </div>
+        </div>
+        <div class="item">
+          <div class="right floated content">
+            <div class="ui mini button"><i class="ui add icon"></i></div>
+            <div class="ui mini button"><i class="ui minus icon"></i></div>
+          </div>
+          <img class="ui avatar image" src="/images/avatar2/small/molly.png">
+          <div class="content">
+            Molly
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -133,6 +187,7 @@
     <section id="pantry">
       
       <!-- NAV BAR -->
+<<<<<<< HEAD
       <div class="navbar ui container">
         <div class="ui large secondary menu">
           <div class="header item">
@@ -147,6 +202,24 @@
             <h3>Welcome, <?php echo $_SESSION['username']['username']; ?>!</h3>
             <a class="ui primary button" href="profile.php">Profile</a>
             <a class="ui negative button" href="index.php">Log Out</a>
+=======
+      <div class="navbar">
+        <div class="ui container">
+          <div class="ui large secondary menu">
+            <div class="header item">
+              <span>something simple.</span>
+              <i class="leaf icon"></i>
+            </div>
+            <a class="item" href="home.php">Home</a>
+            <a class="item">About</a>
+            <a class="item">Team</a>
+            <a class="item">Contact</a>
+            <div class="right item">
+              <h3>Welcome, <?php echo $_SESSION['username']; ?>!</h3>
+              <a class="ui primary button" href="profile.php">Profile</a>
+              <a class="ui negative button" href="index.php">Log Out</a>
+            </div>
+>>>>>>> 3834024380efdad5f315f696e6ad371f8315dfc8
           </div>
         </div>
       </div>
