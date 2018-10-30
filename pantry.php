@@ -4,6 +4,94 @@
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
   }
+
+  function query($query)
+  {
+    $connect = mysqli_connect('localhost','OFS','sesame','OFS');
+
+    $result = mysqli_query($connect, $query);
+    while($row=mysqli_fetch_assoc($result))
+    {
+      $set[] = $row;
+    }
+    if (!empty($set))
+    {
+      return $set;
+    }
+  }
+
+  if(!empty($_GET["action"])) 
+  {
+    switch($_GET["action"]) 
+    {
+      case "addToCart":
+        if(!empty($_POST["quantity"])) 
+        {
+          $products = query("SELECT * FROM item WHERE item_id='" . $_GET["item_id"] . "'");
+          $itemArray = 
+            array
+            (
+              $products[0]["item_id"]=>
+                array
+                (
+                  'item_id'=>$products[0]["item_id"],
+                  'image'=>$products[0]["image"],
+                  'item_name'=>$products[0]["item_name"], 
+                  'item_weight'=>$products[0]["item_weight"], 
+                  'quantity'=>$_POST["quantity"], 
+                  'item_price'=>$products[0]["item_price"]));
+      
+          if(!empty($_SESSION["cart"])) 
+          { 
+            if(in_array($products[0]["item_id"],array_keys($_SESSION["cart"]))) 
+            {
+              foreach($_SESSION["cart"] as $a => $b) 
+              {
+                if($products[0]["item_id"] == $a) 
+                {
+                  if(empty($_SESSION["cart"][$a]["quantity"])) 
+                  {
+                    $_SESSION["cart"][$a]["quantity"] = 0;
+                  }
+
+                  $_SESSION["cart"][$a]["quantity"] += $_POST["quantity"];
+                }
+              }
+            } 
+            else 
+            {
+              $_SESSION["cart"] = array_merge($_SESSION["cart"],$itemArray);
+            }
+          } 
+          else 
+          {
+            $_SESSION["cart"] = $itemArray;
+          }
+        }
+        break;
+  
+      case "removeFromCart":
+        if(!empty($_SESSION["cart"])) 
+        {
+          foreach($_SESSION["cart"] as $a => $b) 
+          {
+            if($_GET["item_id"] == $a)
+            {
+              unset($_SESSION["cart"][$a]);
+            }       
+            if(empty($_SESSION["cart"]))
+            {
+              unset($_SESSION["cart"]);
+            }
+          }
+        }
+        break; 
+
+      case "removeAll":
+        unset($_SESSION["cart"]);
+        break;
+    }
+  }
 ?>
 
 <!DOCTYPE html>
@@ -18,15 +106,12 @@
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
   <style type="text/css">
-
     #toggle .text {
       display: none;
     }
-
     .sidebar .item .list .button i {
       margin: 0 !important;
     }
-
     #pantry {
       min-height: 700px;
       padding: 0.5em 0em;
@@ -69,14 +154,29 @@
       max-width: 300px;
       max-height: 300px;
     }
-
   </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
 
 </head>
 <body>
-
+<?php
+  $total_weight = 0;
+  $total_price = 0;
+  $taxPerc = 0.0725;
+  $tax = 0;
+  $order_tot = 0;
+  if(isset($_SESSION["cart"]))
+  {
+    foreach ($_SESSION["cart"] as $product)
+    {
+      $total_price += ($product["item_price"] * $product["quantity"]);
+      $total_weight += ($product["item_weight"] * $product["quantity"]);
+    }
+  }
+  $tax = $total_price * $taxPerc;
+  $order_tot = $tax + $total_price;
+?>
   <!-- SIDEBAR SHOPPING CART -->
   <div class="ui vertical inverted wide sidebar menu">
     <div class="item">
@@ -89,7 +189,7 @@
             <span>Weight:</span>
           </div>
           <div class="six wide column right floated right aligned">
-            <span>14.3 lbs</span>
+            <span><?php echo $total_weight." lbs"; ?></span>
           </div>
         </div>
 
@@ -99,7 +199,7 @@
             <span>Total before tax:</span>
           </div>
           <div class="six wide column right floated right aligned">
-            <span>$53.8</span>
+            <span><?php echo "$ ".number_format($total_price, 2); ?></span>
           </div>
         </div>
 
@@ -109,7 +209,7 @@
             <span>Estimated tax:</span>
           </div>
           <div class="six wide column right floated right aligned">
-            <span>$4.84</span>
+            <span><?php echo "$ ".number_format($tax, 2); ?></span>
           </div>
         </div>
       </div>
@@ -122,7 +222,7 @@
             <span><h3>Order Total:</h3></span>
           </div>
           <div class="six wide column right floated right aligned">
-            <span><h3>$58.64</h3></span>
+            <span><h3><?php echo "$ ".number_format($order_tot, 2); ?></h3></span>
           </div>
         </div>
       </div>
@@ -137,46 +237,38 @@
     <div class="item">
       <h1>Shopping Cart</h1> <br>
       <div class="ui middle aligned divided list">
-        <div class="item">
-          <div class="right floated content">
-            <div class="ui mini button"><i class="ui add icon"></i></div>
-            <div class="ui mini button"><i class="ui minus icon"></i></div>
-          </div>
-          <img class="ui avatar image" src="/images/avatar2/small/lena.png">
-          <div class="content">
-            Lena
-          </div>
-        </div>
-        <div class="item">
-          <div class="right floated content">
-            <div class="ui mini button"><i class="ui add icon"></i></div>
-            <div class="ui mini button"><i class="ui minus icon"></i></div>
-          </div>
-          <img class="ui avatar image" src="/images/avatar2/small/lindsay.png">
-          <div class="content">
-            Lindsay
-          </div>
-        </div>
-        <div class="item">
-          <div class="right floated content">
-            <div class="ui mini button"><i class="ui add icon"></i></div>
-            <div class="ui mini button"><i class="ui minus icon"></i></div>
-          </div>
-          <img class="ui avatar image" src="/images/avatar2/small/mark.png">
-          <div class="content">
-            Mark
-          </div>
-        </div>
-        <div class="item">
-          <div class="right floated content">
-            <div class="ui mini button"><i class="ui add icon"></i></div>
-            <div class="ui mini button"><i class="ui minus icon"></i></div>
-          </div>
-          <img class="ui avatar image" src="/images/avatar2/small/molly.png">
-          <div class="content">
-            Molly
-          </div>
-        </div>
+        <?php
+          if(isset($_SESSION["cart"]))
+          {
+            foreach ($_SESSION["cart"] as $product)
+            {
+              $name = $product["item_name"];
+              $item_id = $product["item_id"];
+              echo "<div class='item'>
+                <div class='right floated content'>
+                  <a href='pantry.php?action=removeFromCart&item_id=$item_id'>
+                  <div class='ui mini button'><i class='ui minus icon'></i></div></a>
+                </div>
+                <div class='content'>".
+                  $name
+                ."</div>
+              </div>";
+            }
+
+            echo "
+            <div class='remove'>
+              <button class='ui fluid green button'>
+                <a id='btn' href='pantry.php?action=removeAll'>
+                Remove All From Cart
+                </a>
+              </button>
+            </div>";
+          }
+          else
+          {
+            echo "No items in cart";
+          }
+        ?>
       </div>
     </div>
   </div>
@@ -219,14 +311,9 @@
           <form action="Pantry.php" method="GET">
             <div class="ui right aligned right floated six wide column">
               <div class="ui right aligned category search">
-                <!-- <div class="ui icon input">
-                  <input class="prompt" type="text" name="query" placeholder="Search items..."/>
-                  <input type="submit" value="Search"/>
-                  <i class="search icon"></i>
-                </div> -->
                 <div class="ui action input">
-                  <input type="text" placeholder="Search...">
-                  <button class="ui icon button">
+                  <input class="prompt" type="text" name="query" placeholder="Search...">
+                  <button class="ui icon button" type="submit" value="Search">
                     <i class="search icon"></i>
                   </button>
                 </div>
@@ -239,59 +326,65 @@
       <div class="ui grid container">
         <div class="ui four doubling cards">
 
-          <?php
-            $connect = mysqli_connect('localhost','OFS','sesame','OFS');
-            $itemTbl = "SELECT * FROM item";
-
-            if (isset($_GET['query'])) {
+           <?php
+            
+            if (isset($_GET['query']))
+            {
               $query = $_GET['query'];
               $query = htmlspecialchars($query);
-              $query = mysqli_real_escape_string($connect, $query);
-              $records = mysqli_query($connect, "SELECT * FROM item WHERE (`item_name` LIKE '%".$query."%') OR (`item_desc` LIKE '%".$query."%') OR (`item_category` LIKE '%".$query."%')");
+              $products = query("SELECT * FROM item WHERE (`item_name` LIKE '%".$query."%') OR (`item_desc` LIKE '%".$query."%') OR (`item_category` LIKE '%".$query."%')");
             }
             else
             {
-              $records = mysqli_Query($connect, $itemTbl);
+              $products = query("SELECT * FROM item");
             }
-            
-            while($item = mysqli_fetch_assoc($records))
+            if(!empty($products))
             {
-              $item_name = $item['item_name'];
-              $item_price = $item['item_price'];
-              $item_weight = $item['item_weight'];
-              $weight_unit = $item['item_weight_unit'];
-              $item_description = $item['item_desc'];
-              $image = $item['image'];
-              // <img src='https://picsum.photos/200/?random'>
-
-              echo "<div class='card'>
-                <div class='image'>
-                  <img src='$image'>
-                </div>
-                <div class='content'>
-                  <a class='header'>".$item_name."</a>
-                  <div class='meta'>
-                    <span class='date'>$".$item_price."</span> <br>
-                    <span class='date'>".$item_weight. $weight_unit."</span>
-                  </div>
-                  <div class='description'>".
-                    $item_description.
-                  "</div>
-                </div>
-                  <div class='extra content'>
-                    <span>Quantity:</span>
-                    <span class='ui input'>
-                      <input type='number' placeholder='0'>
-                    </span>
-                  </div>
-                <button class='ui bottom attached olive button'>
-                  <i class='shop icon'></i>
-                  Add to cart
-                </button>
-              </div>";
-            } 
+              foreach($products as $key => $value)
+              {
+                $item_name = $products[$key]["item_name"];
+                $item_price = $products[$key]["item_price"];
+                $item_weight = $products[$key]["item_weight"];
+                $weight_unit = $products[$key]["item_weight_unit"];
+                $item_description = $products[$key]["item_desc"];
+                $image = $products[$key]["image"];
           ?>
-          
+                <div class="card">
+                  <form method="post" action="pantry.php?action=addToCart&item_id=<?php echo $products[$key]["item_id"]?>">  
+                    <div class="image">
+                      <img src="$image">
+                    </div>
+                    <div class="content">
+                      <a class="header"><?php echo $item_name ?></a>
+                      <div class="meta">
+                        <span class="date"><?php echo "$ ".$item_price ?></span> <br>
+                        <span class="date"><?php echo $item_weight.$weight_unit ?></span>
+                      </div>
+                      <div class="description"><?php echo
+                        $item_description ?>
+                      </div>
+                    </div>
+                      <div class="cart">
+                        <span>Quantity:</span>
+                        <span class="ui input">
+                          <input type="number" class="quantity" name="quantity" placeholder="0">
+                        </span>
+                        <button class="ui bottom attached olive button" type="submit">
+                          <i class="shop icon"></i>
+                          Add to cart
+                        </button>
+                      </div>
+            
+                    </form>
+                  </div>
+                <?php
+              }
+            }
+            else
+            {
+              echo "No results";
+            }
+          ?>
         </div>
       </div>
 
