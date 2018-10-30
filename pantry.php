@@ -75,7 +75,7 @@
         {
           foreach($_SESSION["cart"] as $a => $b) 
           {
-            if($_GET["item_id"] == $a)
+            if($_GET["item_id"] == $b["item_id"])
             {
               unset($_SESSION["cart"][$a]);
             }       
