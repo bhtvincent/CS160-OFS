@@ -4,11 +4,9 @@
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
   }
-
   function query($query)
   {
     $connect = mysqli_connect('localhost','OFS','sesame','OFS');
-
     $result = mysqli_query($connect, $query);
     while($row=mysqli_fetch_assoc($result))
     {
@@ -19,7 +17,6 @@
       return $set;
     }
   }
-
   if(!empty($_GET["action"])) 
   {
     switch($_GET["action"]) 
@@ -53,7 +50,6 @@
                   {
                     $_SESSION["cart"][$a]["quantity"] = 0;
                   }
-
                   $_SESSION["cart"][$a]["quantity"] += $_POST["quantity"];
                 }
               }
@@ -77,7 +73,7 @@
           {
             if($_GET["item_id"] == $b["item_id"])
             {
-              unset($_SESSION["cart"][$a]);
+              $_SESSION["cart"][$a]["quantity"]--;
             }       
             if(empty($_SESSION["cart"]))
             {
@@ -86,7 +82,6 @@
           }
         }
         break; 
-
       case "removeAll":
         unset($_SESSION["cart"]);
         break;
@@ -249,12 +244,11 @@
                   <a href='pantry.php?action=removeFromCart&item_id=$item_id'>
                   <div class='ui mini button'><i class='ui minus icon'></i></div></a>
                 </div>
-                <div class='content'>".
+                <div class='content'>
                   $name
-                ."</div>
+                </div>
               </div>";
             }
-
             echo "
             <div class='remove'>
               <button class='ui fluid green button'>
