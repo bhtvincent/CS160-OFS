@@ -74,6 +74,10 @@
             if($_GET["item_id"] == $b["item_id"])
             {
               $_SESSION["cart"][$a]["quantity"]--;
+              if($_SESSION["cart"][$a]["quantity"] == 0)
+              {
+                unset($_SESSION["cart"]);
+              }
             }       
             if(empty($_SESSION["cart"]))
             {
