@@ -98,13 +98,15 @@
 
       <div class="ui container">
         <div class="row">
-          <h1>Payment</h1>
+          <h1>Shipping</h1>
         </div>
         <div class="row">
           <div class="ui large breadcrumb">
             <a href="pantry.php" class="section">Pantry</a>
             <i class="right chevron icon divider"></i>
-            <div class="active section">Payment</div>
+            <a href="payment.php" class="section">Payment</a>
+            <i class="right chevron icon divider"></i>
+            <div class="active section">Shipping</div>
           </div>
         </div>
       </div>
@@ -113,7 +115,7 @@
         <div class="ui grid">
           <div class="ui ten wide column">
             <div class="ui info message">
-              Please enter your payment information.
+              Please enter your shipping information.
             </div>
             <div class="ui container">
 
@@ -230,7 +232,7 @@
               <!-- BUTTON -->
               <div class="row">
                 <div class="sixteen wide column">
-                  <a href="shipping.php">
+                  <a href="payment.php">
                     <button class="ui fluid green button">Proceed to shipping</button>
                   </a>
                 </div>
