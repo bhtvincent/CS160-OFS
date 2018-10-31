@@ -175,6 +175,10 @@
   }
   $tax = $total_price * $taxPerc;
   $order_tot = $tax + $total_price;
+  $_SESSION["weight"] = $total_weight;
+  $_SESSION["price"] = $total_price;
+  $_SESSION["tax"] = $tax;
+  $_SESSION["orderTot"] = $order_tot;
 ?>
   <!-- SIDEBAR SHOPPING CART -->
   <div class="ui vertical inverted wide sidebar menu">
