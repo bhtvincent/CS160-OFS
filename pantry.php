@@ -347,12 +347,15 @@
                 $item_weight = $products[$key]["item_weight"];
                 $weight_unit = $products[$key]["item_weight_unit"];
                 $item_description = $products[$key]["item_desc"];
+                $item_inventory = $products[$key]["inventory"];
                 $image = $products[$key]["image"];
+                // print_r($image);
           ?>
                 <div class="card">
                   <form method="post" action="pantry.php?action=addToCart&item_id=<?php echo $products[$key]["item_id"]?>">  
                     <div class="image">
-                      <img src="$image">
+                      <!-- <img src="$image"> -->
+                      <img src = <?php echo $image?> >
                     </div>
                     <div class="content">
                       <a class="header"><?php echo $item_name ?></a>
