@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
   session_start();
   if (!isset($_SESSION['username'])) {
@@ -275,6 +276,8 @@
 
 </html>
 =======
+=======
+>>>>>>> b8f38f53452e413a43246a4ed734b8ef3b36186f
 <?php 
   session_start(); 
   if (!isset($_SESSION['username'])) {
@@ -547,5 +550,9 @@
 
 </body>
 
+<<<<<<< HEAD
+</html>
+>>>>>>> b8f38f53452e413a43246a4ed734b8ef3b36186f
+=======
 </html>
 >>>>>>> b8f38f53452e413a43246a4ed734b8ef3b36186f
