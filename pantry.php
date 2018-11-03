@@ -231,7 +231,7 @@
       </div>
     </div>
     <div class="item">
-      <a href="payment.php">
+      <a href="shipping.php">
         <button class="ui fluid green button">Checkout</button>
       </a>
     </div>
@@ -247,28 +247,39 @@
             {
               $name = $product["item_name"];
               $item_id = $product["item_id"];
-              echo "<div class='item'>
-                <div class='right floated content'>
-                  <a href='pantry.php?action=removeFromCart&item_id=$item_id'>
-                  <div class='ui mini button'><i class='ui minus icon'></i></div></a>
-                </div>
-                <div class='content'>
-                  $name
+              $quantity = $product["quantity"];
+              echo 
+              "<div class='item'>
+                <div class='ui grid'>
+                  <div class='row'>
+                    <div class='ten wide colum'n>
+                      <div class='content'>
+                      $name
+                      </div>
+                    </div>
+                    <div class='three wide column right floated right aligned'>
+                      <span>$quantity</span>
+                    </div>
+                    <div class='three wide column right floated right aligned'>
+                      <a href='pantry.php?action=removeFromCart&item_id=$item_id'>
+                      <div class='ui mini button'><i class='ui minus icon'></i></div></a>
+                    </div>
+                  </div>
                 </div>
               </div>";
             }
             echo "
             <div class='remove'>
-              <button class='ui fluid green button'>
-                <a id='btn' href='pantry.php?action=removeAll'>
-                Remove All From Cart
-                </a>
-              </button>
+              <a href='pantry.php?action=removeAll'>
+                <button class='ui fluid red button'>
+                  Remove All From Cart
+                </button>
+              </a>
             </div>";
           }
           else
           {
-            echo "No items in cart";
+            echo "<h3>No items in cart.</h3>";
           }
         ?>
       </div>
@@ -322,7 +333,7 @@
               </div>
             </div>
           </form>
-          </div>
+        </div>
       </div>   
 
       <div class="ui grid container">
@@ -352,7 +363,7 @@
                 $item_inventory = $products[$key]["inventory"];
                 $image = $products[$key]["image"];
                 // print_r($image);
-          ?>
+            ?>
                 <div class="card">
                   <form method="post" action="pantry.php?action=addToCart&item_id=<?php echo $products[$key]["item_id"]?>">  
                     <div class="image">
@@ -360,7 +371,7 @@
                       <img src = <?php echo $image?> >
                     </div>
                     <div class="content">
-                      <a class="header"><?php echo $item_name ?></a>
+                      <h3 class="header"><?php echo $item_name ?></h3>
                       <div class="meta">
                         <span class="date"><?php echo "$ ".$item_price ?></span> <br>
                         <span class="date"><?php echo $item_weight.$weight_unit ?></span>
@@ -369,25 +380,25 @@
                         $item_description ?>
                       </div>
                     </div>
-                      <div class="cart">
-                        <span>Quantity:</span>
-                        <span class="ui input">
-                          <input type="number" class="quantity" name="quantity" placeholder="0">
-                        </span>
-                        <button class="ui bottom attached olive button" type="submit">
-                          <i class="shop icon"></i>
-                          Add to cart
-                        </button>
-                      </div>
+                    <div class="cart">
+                      <span>Quantity:</span>
+                      <span class="ui input">
+                        <input type="number" class="quantity" name="quantity" placeholder="0" min="0">
+                      </span>
+                      <button class="ui bottom attached olive fluid button" type="submit">
+                        <i class="shop icon"></i>
+                        Add to cart
+                      </button>
+                    </div>
             
-                    </form>
-                  </div>
-                <?php
-              }
+                  </form>
+                </div>
+              <?php
             }
+          }
             else
             {
-              echo "No results";
+              echo "<h3>No results found.</h3>";
             }
           ?>
         </div>
