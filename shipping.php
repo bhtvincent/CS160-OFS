@@ -4,6 +4,17 @@
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
   }
+  $weight = 0;
+  $price = 0;
+  $tax = 0;
+  $orderTot = 0;
+  if(isset($_SESSION["weight"]) && isset($_SESSION["price"]) && isset($_SESSION["tax"]) && isset($_SESSION["orderTot"]))
+  {
+    $weight = $_SESSION["weight"];
+    $price = $_SESSION["price"];
+    $tax = $_SESSION["tax"];
+    $orderTot = $_SESSION["orderTot"];
+  }
 ?>
 
 <!DOCTYPE html>
@@ -104,8 +115,6 @@
           <div class="ui large breadcrumb">
             <a href="pantry.php" class="section">Pantry</a>
             <i class="right chevron icon divider"></i>
-            <a href="payment.php" class="section">Payment</a>
-            <i class="right chevron icon divider"></i>
             <div class="active section">Shipping</div>
           </div>
         </div>
@@ -195,7 +204,7 @@
                   <span>Weight:</span>
                 </div>
                 <div class="six wide column right floated right aligned">
-                  <span>14.3 lbs</span>
+                  <span><?php echo $weight." lbs"; ?></span>
                 </div>
               </div>
 
@@ -205,7 +214,7 @@
                   <span>Total before tax:</span>
                 </div>
                 <div class="six wide column right floated right aligned">
-                  <span>$53.8</span>
+                  <span><?php echo "$ ".number_format($price, 2); ?></span>
                 </div>
               </div>
 
@@ -215,7 +224,7 @@
                   <span>Estimated tax:</span>
                 </div>
                 <div class="six wide column right floated right aligned">
-                  <span>$4.84</span>
+                  <span><?php echo "$ ".number_format($tax, 2); ?></span>
                 </div>
               </div>
 
@@ -225,7 +234,7 @@
                   <span><h3>Order Total:</h3></span>
                 </div>
                 <div class="six wide column right floated right aligned">
-                  <span><h3>$58.64</h3></span>
+                  <span><h3><?php echo "$ ".number_format($orderTot, 2); ?></h3></span>
                 </div>
               </div>
 
@@ -233,7 +242,7 @@
               <div class="row">
                 <div class="sixteen wide column">
                   <a href="payment.php">
-                    <button class="ui fluid green button">Proceed to shipping</button>
+                    <button class="ui fluid green button">Proceed to payment</button>
                   </a>
                 </div>
               </div>

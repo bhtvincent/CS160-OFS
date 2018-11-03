@@ -114,6 +114,8 @@
           <div class="ui large breadcrumb">
             <a href="pantry.php" class="section">Pantry</a>
             <i class="right chevron icon divider"></i>
+            <a href="shipping.php" class="section">Shipping</a>
+            <i class="right chevron icon divider"></i>
             <div class="active section">Payment</div>
           </div>
         </div>
@@ -194,54 +196,14 @@
             </div>
           </div>
           <div class="ui six wide column">
-            <h1>Order Summary</h1>
+            <h1>Shipping to:</h1>
             <div class="ui grid">
-
-              <!-- WEIGHT  -->
-              <div class="row">
-                <div class="ten wide column">
-                  <span>Weight:</span>
-                </div>
-                <div class="six wide column right floated right aligned">
-                  <span><?php echo $weight." lbs"; ?></span>
-                </div>
-              </div>
-
-              <!-- TOTAL BEFORE TAX -->
-              <div class="row">
-                <div class="ten wide column">
-                  <span>Total before tax:</span>
-                </div>
-                <div class="six wide column right floated right aligned">
-                  <span><?php echo "$ ".number_format($price, 2); ?></span>
-                </div>
-              </div>
-
-              <!-- ESTIMATED TAX -->
-              <div class="row">
-                <div class="ten wide column">
-                  <span>Estimated tax:</span>
-                </div>
-                <div class="six wide column right floated right aligned">
-                  <span><?php echo "$ ".number_format($tax, 2); ?></span>
-                </div>
-              </div>
-
-              <!-- ORDER TOTAL -->
-              <div class="row">
-                <div class="ten wide column">
-                  <span><h3>Order Total:</h3></span>
-                </div>
-                <div class="six wide column right floated right aligned">
-                  <span><h3><?php echo "$ ".number_format($orderTot, 2); ?></h3></span>
-                </div>
-              </div>
 
               <!-- BUTTON -->
               <div class="row">
                 <div class="sixteen wide column">
                   <a href="shipping.php">
-                    <button class="ui fluid green button">Proceed to shipping</button>
+                    <button class="ui fluid green button">Confirm</button>
                   </a>
                 </div>
               </div>
