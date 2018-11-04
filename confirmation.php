@@ -43,6 +43,9 @@
     #confirmation .container {
       margin-bottom: 2em;
     }
+		#confirmation .container .raised {
+			padding: 2em 2em 3em 2em;
+		}
     #confirmation .container .header span {
       font-family: 'Pacifico', cursive;
     }
@@ -60,14 +63,11 @@
       margin-bottom: 0.5em;
       font-family: 'Pacifico', cursive;
     }
-    #confirmation .container .message {
-      margin-bottom: 2em;
-    }
     #confirmation .container .field {
       margin-bottom: 1em;
     }
-    #confirmation .container .column {
-      margin-bottom: 0;
+    #confirmation .container .grid .row {
+      padding: 0.5em 0;
     }
   </style>
 
@@ -121,170 +121,161 @@
       </div>
       
 			<!-- SHOPPING INFO -->
-      <div class="ui raised segment container">
-        <div class="ui grid">
-          <div class="ui eight wide column">
-            <div class="ui container">
-							<h1>Shopping Cart</h1>
+			<div class="container">
+				<div class="ui raised segment container">
+					<div class="ui grid">
+						<div class="ui eight wide column">
+							<div class="ui container">
+
+								<!-- SHOPPING CART -->
+								<h1>Shopping Cart</h1>
+								<div class="ui grid">
+
+									<!-- ITEMS -->
+									<div class="row">
+										<div class="ten wide column">
+											<span><strong>Item #1</strong></span>
+										</div>
+										<div class="six wide column right floated right aligned">
+											<span><?php echo $weight." lbs"; ?></span>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="ten wide column">
+											<span><strong>Item #2</strong></span>
+										</div>
+										<div class="six wide column right floated right aligned">
+											<span><?php echo $weight." lbs"; ?></span>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+						<div class="ui eight wide column">
+
+							<!-- ORDER SUMMARY -->
+							<h1>Order Summary</h1>
 							<div class="ui grid">
 
 								<!-- WEIGHT  -->
 								<div class="row">
 									<div class="ten wide column">
-										<span>Weight:</span>
+										<span>Weight</span>
 									</div>
 									<div class="six wide column right floated right aligned">
 										<span><?php echo $weight." lbs"; ?></span>
 									</div>
 								</div>
 
+								<!-- TOTAL BEFORE TAX -->
+								<div class="row">
+									<div class="ten wide column">
+										<span>Total before tax</span>
+									</div>
+									<div class="six wide column right floated right aligned">
+										<span><?php echo "$ ".number_format($price, 2); ?></span>
+									</div>
+								</div>
+
 								<!-- ESTIMATED TAX -->
 								<div class="row">
 									<div class="ten wide column">
-										<span>Estimated tax:</span>
+										<span>Estimated tax</span>
 									</div>
 									<div class="six wide column right floated right aligned">
 										<span><?php echo "$ ".number_format($tax, 2); ?></span>
 									</div>
 								</div>
+
+								<!-- ORDER TOTAL -->
+								<div class="row">
+									<div class="ten wide column">
+										<span><h3>Order Total:</h3></span>
+									</div>
+									<div class="six wide column right floated right aligned">
+										<span><h3><?php echo "$ ".number_format($orderTot, 2); ?></h3></span>
+									</div>
+								</div>
 							</div>
-            </div>
+						</div>
 					</div>
-          <div class="ui eight wide column">
-            <h1>Order Summary</h1>
-            <div class="ui grid">
+				</div>
 
-							<!-- WEIGHT  -->
-							<div class="row">
-								<div class="ten wide column">
-									<span>Weight:</span>
-								</div>
-								<div class="six wide column right floated right aligned">
-									<span><?php echo $weight." lbs"; ?></span>
+				<!-- PAYMENT AND SHIPPING INFO -->
+				<div class="ui raised segment container">
+					<div class="ui grid">
+						<div class="ui eight wide column">
+							<div class="ui container">
+
+								<!-- SHIPPING INFO -->
+								<h1>Shipping Info</h1>
+								<div class="ui grid">
+
+									<!-- SHIPPING TO  -->
+									<div class="row">
+										<div class="sixteen wide column">
+											<h3><strong>Shipping to:</strong></h3>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="sixteen wide column">
+											<p>
+											Name <br>
+											Address <br>
+											City, State Zip Code
+											</p>
+										</div>
+									</div>
+
 								</div>
 							</div>
+						</div>
+						<div class="ui eight wide column">
 
-							<!-- TOTAL BEFORE TAX -->
-							<div class="row">
-								<div class="ten wide column">
-									<span>Total before tax:</span>
-								</div>
-								<div class="six wide column right floated right aligned">
-									<span><?php echo "$ ".number_format($price, 2); ?></span>
-								</div>
-							</div>
-
-							<!-- ESTIMATED TAX -->
-							<div class="row">
-								<div class="ten wide column">
-									<span>Estimated tax:</span>
-								</div>
-								<div class="six wide column right floated right aligned">
-									<span><?php echo "$ ".number_format($tax, 2); ?></span>
-								</div>
-							</div>
-
-							<!-- ORDER TOTAL -->
-							<div class="row">
-								<div class="ten wide column">
-									<span><h3>Order Total:</h3></span>
-								</div>
-								<div class="six wide column right floated right aligned">
-									<span><h3><?php echo "$ ".number_format($orderTot, 2); ?></h3></span>
-								</div>
-							</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-			<!-- PAYMENT AND SHIPPING INFO -->
-      <div class="ui raised segment container">
-        <div class="ui grid">
-          <div class="ui eight wide column">
-            <div class="ui container">
-							<h1>Shipping</h1>
+							<!-- PAYMENT INFO -->
+							<h1>Payment Info</h1>
 							<div class="ui grid">
 
-								<!-- WEIGHT  -->
+								<!-- SHIPPING TO  -->
 								<div class="row">
-									<div class="ten wide column">
-										<span>Weight:</span>
-									</div>
-									<div class="six wide column right floated right aligned">
-										<span><?php echo $weight." lbs"; ?></span>
+									<div class="sixteen wide column">
+										<h3><strong>Billing to:</strong></h3>
 									</div>
 								</div>
 
-								<!-- ESTIMATED TAX -->
 								<div class="row">
-									<div class="ten wide column">
-										<span>Estimated tax:</span>
-									</div>
-									<div class="six wide column right floated right aligned">
-										<span><?php echo "$ ".number_format($tax, 2); ?></span>
+									<div class="sixteen wide column">
+										<p>
+										Name <br>
+										Card number ending in  <br>
+										Expiring on 
+										</p>
 									</div>
 								</div>
+
 							</div>
-            </div>
+						</div>
 					</div>
-          <div class="ui eight wide column">
-            <h1>Order Summary</h1>
-            <div class="ui grid">
+					
+				</div>
 
-							<!-- WEIGHT  -->
-							<div class="row">
-								<div class="ten wide column">
-									<span>Weight:</span>
-								</div>
-								<div class="six wide column right floated right aligned">
-									<span><?php echo $weight." lbs"; ?></span>
-								</div>
-							</div>
-
-							<!-- TOTAL BEFORE TAX -->
-							<div class="row">
-								<div class="ten wide column">
-									<span>Total before tax:</span>
-								</div>
-								<div class="six wide column right floated right aligned">
-									<span><?php echo "$ ".number_format($price, 2); ?></span>
-								</div>
-							</div>
-
-							<!-- ESTIMATED TAX -->
-							<div class="row">
-								<div class="ten wide column">
-									<span>Estimated tax:</span>
-								</div>
-								<div class="six wide column right floated right aligned">
-									<span><?php echo "$ ".number_format($tax, 2); ?></span>
-								</div>
-							</div>
-
-							<!-- ORDER TOTAL -->
-							<div class="row">
-								<div class="ten wide column">
-									<span><h3>Order Total:</h3></span>
-								</div>
-								<div class="six wide column right floated right aligned">
-									<span><h3><?php echo "$ ".number_format($orderTot, 2); ?></h3></span>
-								</div>
-							</div>
-
-							<!-- BUTTON -->
-							<div class="row">
-								<div class="sixteen wide column">
-									<a href="payment.php">
-										<button class="ui fluid green button">Proceed to payment</button>
-									</a>
-								</div>
-							</div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
+				<!-- BUTTONS -->
+				<div class="ui center aligned container">
+					<a href="complete.php">
+						<button class="ui big green button">Submit order</button>
+					</a>
+				</div>
+				<div class="ui center aligned container">
+					<a href="home.php">
+						<button class="ui small gray button">Cancel order</button>
+					</a>
+				</div>
+			</div>
+  
 
     </section>
 
