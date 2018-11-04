@@ -231,14 +231,22 @@
       </div>
     </div>
     <div class="item">
+      <div class="ui negative limit message">
+        <i class="close icon"></i>
+        <div class="header">
+          Weight exceeds 20-lb limit!
+        </div>
+        <p>Please remove items in cart to make it lighter</p>
+      </div>
       <a href="shipping.php">
-        <button class="ui fluid green button">Checkout</button>
+        <button class="ui disabled fluid green button">Checkout</button>
       </a>
     </div>
 
     <!-- SHOPPING CART -->
     <div class="item">
       <h1>Shopping Cart</h1> <br>
+      
       <div class="ui middle aligned divided list">
         <?php
           if(isset($_SESSION["cart"]))
