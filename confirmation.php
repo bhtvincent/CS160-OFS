@@ -132,19 +132,27 @@
 									<?php
 							        	if(isset($_SESSION["cart"]))
 							          	{
-							            	foreach ($_SESSION["cart"] as product)
+							            	foreach ($_SESSION["cart"] as $product)
 							            	{
 									            $name = $product["item_name"];
 									            $quantity = $product["quantity"];
-									            $item_weight = $product["item_weight"];
+															$item_weight = $product["item_weight"];
+															$item_total_weight = $item_weight * $quantity;
+															$suffix = "lbs";
+															if ($item_total_weight == 1) {
+																$suffix = "lb";
+															}
 												
 												echo "<!-- ITEMS -->
 												<div class='row'>
 													<div class='ten wide column'>
-														<span><strong>$name"." ". "$quantity</strong></span>
+														<span><strong>$name</strong></span>
 													</div>
-													<div class='six wide column right floated right aligned'>
-														<span>$item_weight lbs</span>
+													<div class='three wide column right floated right aligned'>
+														<span>$quantity</span>
+													</div>
+													<div class='three wide column right floated right aligned'>
+														<span>$item_total_weight"." "."$suffix</span>
 													</div>
 												</div>";
 											}

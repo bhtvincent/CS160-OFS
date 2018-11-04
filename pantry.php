@@ -202,11 +202,15 @@
           </div>
           <div class="six wide column right floated right aligned">
             <?php 
+              $suffix = "lbs";
+              if ($total_weight == 1) {
+                $suffix = "lb";
+              }
               if ($total_weight > 20) {
                 echo "<span id='weight'><i class='exclamation triangle icon'></i>".$total_weight." lbs</span>";
               }
               else {
-                echo "<span>".$total_weight." lbs</span>";
+                echo "<span>".$total_weight." ".$suffix."</span>";
               }
             ?>
           </div>
@@ -258,8 +262,10 @@
         </div>
         <button class='ui disabled fluid green button'>Checkout</button>";
       }
-      else
-      {
+      else if ($total_weight <= 0) {
+        echo "<button class='ui disabled fluid green button'>Checkout</button>";
+      }
+      else {
         echo "<a href='shipping.php'>
           <button class='ui fluid green button'>Checkout</button>
         </a>";
@@ -282,6 +288,7 @@
                   $name = $product["item_name"];
                   $item_id = $product["item_id"];
                   $quantity = $product["quantity"];
+                  $suffix = "lbs";
                   echo 
                   "<div class='item'>
                     <div class='ui grid'>
@@ -412,7 +419,7 @@
                       <h3 class="header"><?php echo $item_name ?></h3>
                       <div class="meta">
                         <span class="date"><?php echo "$ ".$item_price ?></span> <br>
-                        <span class="date"><?php echo $item_weight.$weight_unit ?></span>
+                        <span class="date"><?php echo $item_weight." ".$weight_unit ?></span>
                       </div>
                       <div class="description"><?php echo
                         $item_description ?>
