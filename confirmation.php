@@ -29,7 +29,6 @@
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
   <style type="text/css">
-
     body {
       min-height: 700px;
       padding: 0.5em 0em;
@@ -130,25 +129,26 @@
 								<!-- SHOPPING CART -->
 								<h1>Shopping Cart</h1>
 								<div class="ui grid">
-
-									<!-- ITEMS -->
-									<div class="row">
-										<div class="ten wide column">
-											<span><strong>Item #1</strong></span>
-										</div>
-										<div class="six wide column right floated right aligned">
-											<span><?php echo $weight." lbs"; ?></span>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="ten wide column">
-											<span><strong>Item #2</strong></span>
-										</div>
-										<div class="six wide column right floated right aligned">
-											<span><?php echo $weight." lbs"; ?></span>
-										</div>
-									</div>
+									<?php
+							        	if(isset($_SESSION["cart"]))
+							          	{
+							            	foreach ($_SESSION["cart"] as $product)
+							            	{
+									            $name = $product["item_name"];
+									            $quantity = $product["quantity"];
+												
+												echo "<!-- ITEMS -->
+												<div class='row'>
+													<div class='ten wide column'>
+														<span><strong>$name"." ". "$quantity</strong></span>
+													</div>
+													<div class='six wide column right floated right aligned'>
+														<span>$weight lbs</span>
+													</div>
+												</div>";
+											}
+										}
+									?>
 
 
 								</div>
