@@ -231,16 +231,25 @@
       </div>
     </div>
     <div class="item">
-      <div class="ui negative limit message">
-        <i class="close icon"></i>
-        <div class="header">
-          Weight exceeds 20-lb limit!
+      <?php
+        if($total_weight > 20)
+        {
+          echo "<div class='ui negative limit message'>
+                    <i class='close icon'></i>
+                    <div class='header'>
+                      Weight exceeds 20-lb limit!
+          </div>
+          <p>Please remove items in cart to make it lighter</p>
         </div>
-        <p>Please remove items in cart to make it lighter</p>
-      </div>
-      <a href="shipping.php">
-        <button class="ui disabled fluid green button">Checkout</button>
-      </a>
+        <button class='ui disabled fluid green button'>Checkout</button>";
+      }
+      else
+      {
+        echo "<a href='shipping.php'>
+          <button class='ui disabled fluid green button'>Checkout</button>
+        </a>";
+      }
+      ?>
     </div>
 
     <!-- SHOPPING CART -->
