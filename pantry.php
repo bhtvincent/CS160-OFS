@@ -111,6 +111,12 @@
     .sidebar .item .list .button i {
       margin: 0 !important;
     }
+    .sidebar .item .list .item {
+      padding-right: 1em !important;
+    }
+    .sidebar .item .remove .button {
+      margin-top: 1em;
+    }
     #pantry {
       min-height: 700px;
       padding: 0.5em 0em;
@@ -150,8 +156,8 @@
       vertical-align: bottom;
     }
     #pantry .image img {
-      max-width: 300px;
-      max-height: 300px;
+      max-width: 100%;
+      max-height: auto;
     }
     #weight {
       color: #ca3b33;
@@ -264,51 +270,57 @@
     <!-- SHOPPING CART -->
     <div class="item">
       <h1>Shopping Cart</h1> <br>
-      
-      <div class="ui middle aligned divided list">
-        <?php
-          if(isset($_SESSION["cart"]))
-          {
-            foreach ($_SESSION["cart"] as $product)
-            {
-              $name = $product["item_name"];
-              $item_id = $product["item_id"];
-              $quantity = $product["quantity"];
-              echo 
-              "<div class='item'>
-                <div class='ui grid'>
-                  <div class='row'>
-                    <div class='ten wide colum'n>
-                      <div class='content'>
-                      $name
+      <div class="ui grid">
+        <div class="row">
+          <div class="sixteen wide column">
+          <div class="ui middle aligned divided list">
+            <?php
+              if(isset($_SESSION["cart"]))
+              {
+                foreach ($_SESSION["cart"] as $product)
+                {
+                  $name = $product["item_name"];
+                  $item_id = $product["item_id"];
+                  $quantity = $product["quantity"];
+                  echo 
+                  "<div class='item'>
+                    <div class='ui grid'>
+                      <div class='row'>
+                        <div class='ten wide column'>
+                          <div class='content'>
+                          $name
+                          </div>
+                        </div>
+                        <div class='three wide column right aligned'>
+                          <span>$quantity</span>
+                        </div>
+                        <div class='three wide column right aligned'>
+                          <a href='pantry.php?action=removeFromCart&item_id=$item_id'>
+                          <div class='ui mini button'><i class='ui minus icon'></i></div></a>
+                        </div>
                       </div>
                     </div>
-                    <div class='three wide column right floated right aligned'>
-                      <span>$quantity</span>
-                    </div>
-                    <div class='three wide column right floated right aligned'>
-                      <a href='pantry.php?action=removeFromCart&item_id=$item_id'>
-                      <div class='ui mini button'><i class='ui minus icon'></i></div></a>
-                    </div>
-                  </div>
-                </div>
-              </div>";
-            }
-            echo "
-            <div class='remove'>
-              <a href='pantry.php?action=removeAll'>
-                <button class='ui fluid red button'>
-                  Remove All From Cart
-                </button>
-              </a>
-            </div>";
-          }
-          else
-          {
-            echo "<h3>No items in cart.</h3>";
-          }
-        ?>
+                  </div>";
+                }
+                echo "
+                <div class='remove'>
+                  <a href='pantry.php?action=removeAll'>
+                    <button class='ui fluid red button'>
+                      Remove all items
+                    </button>
+                  </a>
+                </div>";
+              }
+              else
+              {
+                echo "<h3>No items in cart.</h3>";
+              }
+            ?>
+          </div>
+          </div>
+        </div>
       </div>
+      
     </div>
   </div>
   
