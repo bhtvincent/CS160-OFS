@@ -4,17 +4,6 @@
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
   }
-  $weight = 0;
-  $price = 0;
-  $tax = 0;
-  $orderTot = 0;
-  if(isset($_SESSION["weight"]) && isset($_SESSION["price"]) && isset($_SESSION["tax"]) && isset($_SESSION["orderTot"]))
-  {
-    $weight = $_SESSION["weight"];
-    $price = $_SESSION["price"];
-    $tax = $_SESSION["tax"];
-    $orderTot = $_SESSION["orderTot"];
-  }
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +28,6 @@
       left: -2em;
       bottom: -2em;
     }
-
     #payment .container {
       margin-bottom: 2em;
     }
