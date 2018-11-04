@@ -29,7 +29,7 @@
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
   <style type="text/css">
-    #payment {
+    body {
       min-height: 700px;
       padding: 0.5em 0em;
       background: #F5EAD1 url('images/web-graphics/leaf-watermark.png');
@@ -39,6 +39,7 @@
       left: -2em;
       bottom: -2em;
     }
+
     #payment .container {
       margin-bottom: 2em;
     }
@@ -64,6 +65,9 @@
     }
     #payment .container .field {
       margin-bottom: 1em;
+    }
+    #payment .container .checkbox {
+      margin: 2em 0;
     }
     #payment .container .column {
       margin-bottom: 0;
@@ -137,26 +141,6 @@
                   <input type="text">
                 </div>
 
-                <!-- CARDHOLDER'S ADDRESS -->
-                <div class="field">
-                  <label>Cardholder's Address</label>
-                  <input type="text">
-                </div>
-                <div class="ui grid">
-                  <div class="ui nine wide column field">
-                    <label>City</label>
-                    <input type="text">
-                  </div>
-                  <div class="ui three wide column field">
-                    <label>State</label>
-                    <input type="text">
-                  </div>
-                  <div class="ui four wide column field">
-                    <label>Zip Code</label>
-                    <input type="text">
-                  </div>
-                </div>
-
                 <!-- CARD INFORMATION -->
                 <div class="ui grid">
                   <div class="ui thirteen wide column field">
@@ -191,6 +175,33 @@
                   </div>
                 </div>
 
+                <div class="ui checkbox">
+                  <input id="billingAdd" type="checkbox" name="example">
+                  <label>Billing  address is the same as shipping address</label>
+                </div>
+
+                <!-- CARDHOLDER'S ADDRESS -->
+                <div id="address">
+                  <div class="field">
+                    <label>Cardholder's Address</label>
+                    <input type="text">
+                  </div>
+                  <div class="ui grid">
+                    <div class="ui nine wide column field">
+                      <label>City</label>
+                      <input type="text">
+                    </div>
+                    <div class="ui three wide column field">
+                      <label>State</label>
+                      <input type="text">
+                    </div>
+                    <div class="ui four wide column field">
+                      <label>Zip Code</label>
+                      <input type="text">
+                    </div>
+                  </div>
+                </div>
+
               </form>
               
             </div>
@@ -199,10 +210,21 @@
             <h1>Shipping to:</h1>
             <div class="ui grid">
 
+              <!-- SHIPPING NAME AND ADDRESS -->
+              <div class="row">
+                <div class="ten wide column">
+                  <p>
+                  Name <br>
+                  Address <br>
+                  City, State Zip Code
+                  </p>
+                </div>
+              </div>
+
               <!-- BUTTON -->
               <div class="row">
                 <div class="sixteen wide column">
-                  <a href="shipping.php">
+                  <a href="confirmation.php">
                     <button class="ui fluid green button">Confirm</button>
                   </a>
                 </div>
@@ -228,6 +250,11 @@
       ;
     })
   ;
+  $(document).ready(function() {
+    $('#billingAdd').change(function() {
+        $('#address').toggle();
+    });
+  });
   </script>
 
 </body>

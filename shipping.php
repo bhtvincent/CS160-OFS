@@ -30,7 +30,7 @@
 
   <style type="text/css">
 
-    #payment {
+    body {
       min-height: 700px;
       padding: 0.5em 0em;
       background: #F5EAD1 url('images/web-graphics/leaf-watermark.png');
@@ -40,33 +40,33 @@
       left: -2em;
       bottom: -2em;
     }
-    #payment .container {
+    #shipping .container {
       margin-bottom: 2em;
     }
-    #payment .container .header span {
+    #shipping .container .header span {
       font-family: 'Pacifico', cursive;
     }
-    #payment .container .header i {
+    #shipping .container .header i {
       padding: 0 0.5em;
     }
-    #payment .container .right .button {
+    #shipping .container .right .button {
       margin: 0 1em !important;
     }
-    #payment .navbar .container .right h3 {
+    #shipping .navbar .container .right h3 {
       margin: 0 1em !important;
     }
-    #payment .container .row h1 {
+    #shipping .container .row h1 {
       font-size: 5em;
       margin-bottom: 0.5em;
       font-family: 'Pacifico', cursive;
     }
-    #payment .container .message {
+    #shipping .container .message {
       margin-bottom: 2em;
     }
-    #payment .container .field {
+    #shipping .container .field {
       margin-bottom: 1em;
     }
-    #payment .container .column {
+    #shipping .container .column {
       margin-bottom: 0;
     }
     /* .image {
@@ -83,7 +83,7 @@
   <div class="pusher">
 
     <!-- MASTER HEAD -->
-    <section id="payment">
+    <section id="shipping">
       
       <!-- NAV BAR -->
       <div class="navbar">
@@ -132,13 +132,13 @@
               
                 <!-- CARDHOLDER'S NAME -->
                 <div class="field">
-                  <label>Cardholder's Name</label>
+                  <label>Name</label>
                   <input type="text">
                 </div>
 
                 <!-- CARDHOLDER'S ADDRESS -->
                 <div class="field">
-                  <label>Cardholder's Address</label>
+                  <label>Address</label>
                   <input type="text">
                 </div>
                 <div class="ui grid">
@@ -152,40 +152,6 @@
                   </div>
                   <div class="ui four wide column field">
                     <label>Zip Code</label>
-                    <input type="text">
-                  </div>
-                </div>
-
-                <!-- CARD INFORMATION -->
-                <div class="ui grid">
-                  <div class="ui thirteen wide column field">
-                    <label>Card Number</label>
-                    <div class="ui right labeled input">
-                      <input type="text">
-                      <div class="ui dropdown label">
-                        <div class="text">Card Type</div>
-                          <i class="dropdown icon"></i>
-                          <div class="menu">
-                            <div class="item">VISA</div>
-                            <div class="item">Mastercard</div>
-                            <div class="item">Discover</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="ui three wide column field">
-                    <label>CVC</label>
-                    <input type="password">
-                  </div>
-                </div>
-
-                <div class="ui grid">
-                  <div class="ui eight wide column field">
-                    <label>Expiration Date</label>
-                    <input type="date">
-                  </div>
-                  <div class="ui eight wide column field">
-                    <label>Email Address</label>
                     <input type="text">
                   </div>
                 </div>
