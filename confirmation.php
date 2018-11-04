@@ -132,10 +132,11 @@
 									<?php
 							        	if(isset($_SESSION["cart"]))
 							          	{
-							            	foreach ($_SESSION["cart"] as $product)
+							            	foreach ($_SESSION["cart"] as product)
 							            	{
 									            $name = $product["item_name"];
 									            $quantity = $product["quantity"];
+									            $item_weight = $product["item_weight"];
 												
 												echo "<!-- ITEMS -->
 												<div class='row'>
@@ -143,7 +144,7 @@
 														<span><strong>$name"." ". "$quantity</strong></span>
 													</div>
 													<div class='six wide column right floated right aligned'>
-														<span>$weight lbs</span>
+														<span>$item_weight lbs</span>
 													</div>
 												</div>";
 											}
