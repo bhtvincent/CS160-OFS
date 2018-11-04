@@ -153,6 +153,9 @@
       max-width: 300px;
       max-height: 300px;
     }
+    #weight {
+      color: #ca3b33;
+    }
   </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
@@ -192,7 +195,14 @@
             <span>Weight:</span>
           </div>
           <div class="six wide column right floated right aligned">
-            <span><?php echo $total_weight." lbs"; ?></span>
+            <?php 
+              if ($total_weight > 20) {
+                echo "<span id='weight'><i class='exclamation triangle icon'></i>".$total_weight." lbs</span>";
+              }
+              else {
+                echo "<span>".$total_weight." lbs</span>";
+              }
+            ?>
           </div>
         </div>
 
@@ -235,7 +245,6 @@
         if($total_weight > 20)
         {
           echo "<div class='ui negative limit message'>
-                    <i class='close icon'></i>
                     <div class='header'>
                       Weight exceeds 20-lb limit!
           </div>
@@ -246,7 +255,7 @@
       else
       {
         echo "<a href='shipping.php'>
-          <button class='ui disabled fluid green button'>Checkout</button>
+          <button class='ui fluid green button'>Checkout</button>
         </a>";
       }
       ?>
