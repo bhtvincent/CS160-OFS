@@ -284,17 +284,6 @@
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
   }
-  $weight = 0;
-  $price = 0;
-  $tax = 0;
-  $orderTot = 0;
-  if(isset($_SESSION["weight"]) && isset($_SESSION["price"]) && isset($_SESSION["tax"]) && isset($_SESSION["orderTot"]))
-  {
-    $weight = $_SESSION["weight"];
-    $price = $_SESSION["price"];
-    $tax = $_SESSION["tax"];
-    $orderTot = $_SESSION["orderTot"];
-  }
 ?>
 
 <!DOCTYPE html>
@@ -309,7 +298,7 @@
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
   <style type="text/css">
-    #payment {
+    body {
       min-height: 700px;
       padding: 0.5em 0em;
       background: #F5EAD1 url('images/web-graphics/leaf-watermark.png');
@@ -344,6 +333,9 @@
     }
     #payment .container .field {
       margin-bottom: 1em;
+    }
+    #payment .container .checkbox {
+      margin: 2em 0;
     }
     #payment .container .column {
       margin-bottom: 0;
@@ -391,10 +383,36 @@
           <h1>Payment</h1>
         </div>
         <div class="row">
-          <div class="ui large breadcrumb">
-            <a href="pantry.php" class="section">Pantry</a>
-            <i class="right chevron icon divider"></i>
-            <div class="active section">Payment</div>
+          <div class="ui four small steps">
+            
+            <a href="pantry.php" class="completed link step">
+              <i class="cart icon"></i>
+              <div class="content">
+                <div class="title">Pantry</div>
+                <div class="description">Choose items to order</div>
+              </div>
+            </a>
+            <a href="shipping.php" class="completed link step">
+              <i class="truck icon"></i>
+              <div class="content">
+                <div class="title">Shipping</div>
+                <div class="description">Choose your shipping options</div>
+              </div>
+            </a>
+
+            <div class="active step">
+              <i class="payment icon"></i>
+              <div class="content">
+                <div class="title">Billing</div>
+                <div class="description">Enter billing information</div>
+              </div>
+            </div>
+            <div class="disabled step">
+              <i class="info icon"></i>
+              <div class="content">
+                <div class="title">Confirm Order</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -413,26 +431,6 @@
                 <div class="field">
                   <label>Cardholder's Name</label>
                   <input type="text">
-                </div>
-
-                <!-- CARDHOLDER'S ADDRESS -->
-                <div class="field">
-                  <label>Cardholder's Address</label>
-                  <input type="text">
-                </div>
-                <div class="ui grid">
-                  <div class="ui nine wide column field">
-                    <label>City</label>
-                    <input type="text">
-                  </div>
-                  <div class="ui three wide column field">
-                    <label>State</label>
-                    <input type="text">
-                  </div>
-                  <div class="ui four wide column field">
-                    <label>Zip Code</label>
-                    <input type="text">
-                  </div>
                 </div>
 
                 <!-- CARD INFORMATION -->
@@ -469,59 +467,57 @@
                   </div>
                 </div>
 
+                <div class="ui checkbox">
+                  <input id="billingAdd" type="checkbox" name="example">
+                  <label>Billing  address is the same as shipping address</label>
+                </div>
+
+                <!-- CARDHOLDER'S ADDRESS -->
+                <div id="address">
+                  <div class="field">
+                    <label>Cardholder's Address</label>
+                    <input type="text">
+                  </div>
+                  <div class="ui grid">
+                    <div class="ui nine wide column field">
+                      <label>City</label>
+                      <input type="text">
+                    </div>
+                    <div class="ui three wide column field">
+                      <label>State</label>
+                      <input type="text">
+                    </div>
+                    <div class="ui four wide column field">
+                      <label>Zip Code</label>
+                      <input type="text">
+                    </div>
+                  </div>
+                </div>
+
               </form>
               
             </div>
           </div>
           <div class="ui six wide column">
-            <h1>Order Summary</h1>
+            <h1>Shipping to:</h1>
             <div class="ui grid">
 
-              <!-- WEIGHT  -->
+              <!-- SHIPPING NAME AND ADDRESS -->
               <div class="row">
                 <div class="ten wide column">
-                  <span>Weight:</span>
-                </div>
-                <div class="six wide column right floated right aligned">
-                  <span><?php echo $weight." lbs"; ?></span>
-                </div>
-              </div>
-
-              <!-- TOTAL BEFORE TAX -->
-              <div class="row">
-                <div class="ten wide column">
-                  <span>Total before tax:</span>
-                </div>
-                <div class="six wide column right floated right aligned">
-                  <span><?php echo "$ ".number_format($price, 2); ?></span>
-                </div>
-              </div>
-
-              <!-- ESTIMATED TAX -->
-              <div class="row">
-                <div class="ten wide column">
-                  <span>Estimated tax:</span>
-                </div>
-                <div class="six wide column right floated right aligned">
-                  <span><?php echo "$ ".number_format($tax, 2); ?></span>
-                </div>
-              </div>
-
-              <!-- ORDER TOTAL -->
-              <div class="row">
-                <div class="ten wide column">
-                  <span><h3>Order Total:</h3></span>
-                </div>
-                <div class="six wide column right floated right aligned">
-                  <span><h3><?php echo "$ ".number_format($orderTot, 2); ?></h3></span>
+                  <p>
+                  Name <br>
+                  Address <br>
+                  City, State Zip Code
+                  </p>
                 </div>
               </div>
 
               <!-- BUTTON -->
               <div class="row">
                 <div class="sixteen wide column">
-                  <a href="shipping.php">
-                    <button class="ui fluid green button">Proceed to shipping</button>
+                  <a href="confirmation.php">
+                    <button class="ui fluid green button">Confirm</button>
                   </a>
                 </div>
               </div>
@@ -546,6 +542,11 @@
       ;
     })
   ;
+  $(document).ready(function() {
+    $('#billingAdd').change(function() {
+        $('#address').toggle();
+    });
+  });
   </script>
 
 </body>
