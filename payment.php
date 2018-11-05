@@ -154,7 +154,7 @@
                       <div class="ui dropdown label">
                         <div class="text">Card Type</div>
                           <i class="dropdown icon"></i>
-                          <div class="menu" id="cardType">
+                          <div class="menu" id="cardType" required>
                             <div class="item">VISA</div>
                             <div class="item">Mastercard</div>
                             <div class="item">Discover</div>
