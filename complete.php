@@ -46,10 +46,8 @@
 
 		#complete .container .logo {
 			margin: 2em 0;
-		}
-
-		#complete .container .logo h3 {
 			font-family: 'Pacifico', cursive;
+			font-size: 1.5em;
 		}
 
 
@@ -91,7 +89,8 @@
 						</div>
 					</a>
 					<div class="logo">
-						<h3>something simple.</h3>
+						<span>something simple.</span>
+						<i class="leaf icon"></i>
 					</div>
 				</div>
 			</div>

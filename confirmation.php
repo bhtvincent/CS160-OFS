@@ -107,14 +107,36 @@
           <h1>Confirmation</h1>
         </div>
         <div class="row">
-          <div class="ui large breadcrumb">
-            <a href="pantry.php" class="section">Pantry</a>
-            <i class="right chevron icon divider"></i>
-            <a href="shipping.php" class="section">Shipping</a>
-            <i class="right chevron icon divider"></i>
-            <a href="payment.php" class="section">Payment</a>
-            <i class="right chevron icon divider"></i>
-            <div class="active section">Confirmation</div>
+					<div class="ui four small steps">
+            
+            <a href="pantry.php" class="completed link step">
+              <i class="cart icon"></i>
+              <div class="content">
+                <div class="title">Pantry</div>
+                <div class="description">Choose items to order</div>
+              </div>
+            </a>
+            <a href="shipping.php" class="completed link step">
+              <i class="truck icon"></i>
+              <div class="content">
+                <div class="title">Shipping</div>
+                <div class="description">Choose your shipping options</div>
+              </div>
+            </a>
+            <a href="payment.php" class="completed link step">
+              <i class="payment icon"></i>
+              <div class="content">
+                <div class="title">Billing</div>
+                <div class="description">Enter billing information</div>
+              </div>
+            </a>
+
+            <div class="active step">
+              <i class="info icon"></i>
+              <div class="content">
+                <div class="title">Confirm Order</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
