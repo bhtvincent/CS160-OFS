@@ -3,12 +3,12 @@
 <?php
   session_start();
 =======
-<?php 
-  session_start(); 
+<?php
+  session_start();
 >>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
 =======
-<?php 
-  session_start(); 
+<?php
+  session_start();
 >>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
   if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
@@ -80,12 +80,12 @@
 
 </head>
 <body>
-  
+
   <div class="pusher">
 
     <!-- MASTER HEAD -->
     <section id="payment">
-      
+
       <!-- NAV BAR -->
       <div class="navbar">
         <div class="ui container">
@@ -114,7 +114,7 @@
         </div>
         <div class="row">
           <div class="ui four small steps">
-            
+
             <a href="pantry.php" class="completed link step">
               <i class="cart icon"></i>
               <div class="content">
@@ -146,7 +146,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="ui raised segment container">
         <div class="ui grid">
           <div class="ui ten wide column">
@@ -156,7 +156,7 @@
             <div class="ui container">
 
               <form class="ui form">
-              
+
                 <!-- CARDHOLDER'S NAME -->
                 <div class="field">
                   <label>Cardholder's Name</label>
@@ -306,7 +306,7 @@
 
 >>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
               </form>
-              
+
             </div>
           </div>
           <div class="ui six wide column">
@@ -347,7 +347,7 @@
             </div>
           </div>
         </div>
-        
+
       </div>
 
     </section>
