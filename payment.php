@@ -1,18 +1,19 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<?php
-  session_start();
-=======
-<?php
-  session_start();
->>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
-=======
-<?php
-  session_start();
->>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
+<?php 
+  session_start(); 
   if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
+  }
+  $weight = 0;
+  $price = 0;
+  $tax = 0;
+  $orderTot = 0;
+  if(isset($_SESSION["weight"]) && isset($_SESSION["price"]) && isset($_SESSION["tax"]) && isset($_SESSION["orderTot"]))
+  {
+    $weight = $_SESSION["weight"];
+    $price = $_SESSION["price"];
+    $tax = $_SESSION["tax"];
+    $orderTot = $_SESSION["orderTot"];
   }
 ?>
 
@@ -28,7 +29,7 @@
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
   <style type="text/css">
-    body {
+    #payment {
       min-height: 700px;
       padding: 0.5em 0em;
       background: #F5EAD1 url('images/web-graphics/leaf-watermark.png');
@@ -64,9 +65,6 @@
     #payment .container .field {
       margin-bottom: 1em;
     }
-    #payment .container .checkbox {
-      margin: 2em 0;
-    }
     #payment .container .column {
       margin-bottom: 0;
     }
@@ -80,12 +78,12 @@
 
 </head>
 <body>
-
+  
   <div class="pusher">
 
     <!-- MASTER HEAD -->
     <section id="payment">
-
+      
       <!-- NAV BAR -->
       <div class="navbar">
         <div class="ui container">
@@ -113,40 +111,14 @@
           <h1>Payment</h1>
         </div>
         <div class="row">
-          <div class="ui four small steps">
-
-            <a href="pantry.php" class="completed link step">
-              <i class="cart icon"></i>
-              <div class="content">
-                <div class="title">Pantry</div>
-                <div class="description">Choose items to order</div>
-              </div>
-            </a>
-            <a href="shipping.php" class="completed link step">
-              <i class="truck icon"></i>
-              <div class="content">
-                <div class="title">Shipping</div>
-                <div class="description">Choose your shipping options</div>
-              </div>
-            </a>
-
-            <div class="active step">
-              <i class="payment icon"></i>
-              <div class="content">
-                <div class="title">Billing</div>
-                <div class="description">Enter billing information</div>
-              </div>
-            </div>
-            <div class="disabled step">
-              <i class="info icon"></i>
-              <div class="content">
-                <div class="title">Confirm Order</div>
-              </div>
-            </div>
+          <div class="ui large breadcrumb">
+            <a href="pantry.php" class="section">Pantry</a>
+            <i class="right chevron icon divider"></i>
+            <div class="active section">Payment</div>
           </div>
         </div>
       </div>
-
+      
       <div class="ui raised segment container">
         <div class="ui grid">
           <div class="ui ten wide column">
@@ -156,28 +128,26 @@
             <div class="ui container">
 
               <form class="ui form">
-
+              
                 <!-- CARDHOLDER'S NAME -->
                 <div class="field">
                   <label>Cardholder's Name</label>
                   <input type="text">
                 </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <!-- CARDHOLDER'S ADDRESS -->
                 <div class="field">
                   <label>Cardholder's Address</label>
-                  <input type="text" required>
+                  <input type="text">
                 </div>
                 <div class="ui grid">
                   <div class="ui nine wide column field">
                     <label>City</label>
-                    <input type="text" required>
+                    <input type="text">
                   </div>
                   <div class="ui three wide column field">
                     <label>State</label>
-                    <input type="text" required>
+                    <input type="text">
                   </div>
                   <div class="ui four wide column field">
                     <label>Zip Code</label>
@@ -185,28 +155,11 @@
                   </div>
                 </div>
 
-=======
->>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
-=======
->>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
                 <!-- CARD INFORMATION -->
                 <div class="ui grid">
                   <div class="ui thirteen wide column field">
                     <label>Card Number</label>
                     <div class="ui right labeled input">
-<<<<<<< HEAD
-<<<<<<< HEAD
-                      <input type="text" id="cardNumber" required>
-                      <div class="ui dropdown label">
-                        <div class="text">Card Type</div>
-                          <i class="dropdown icon"></i>
-                          <div class="menu" id="cardType" required>
-                            <div class="item">VISA</div>
-                            <div class="item">Mastercard</div>
-                            <div class="item">Discover</div>
-                            <div class="item">American Express</div>
-                          </div>
-=======
                       <input type="text">
                       <div class="ui dropdown label">
                         <div class="text">Card Type</div>
@@ -216,130 +169,79 @@
                             <div class="item">Mastercard</div>
                             <div class="item">Discover</div>
                         </div>
->>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
-=======
-                      <input type="text">
-                      <div class="ui dropdown label">
-                        <div class="text">Card Type</div>
-                          <i class="dropdown icon"></i>
-                          <div class="menu">
-                            <div class="item">VISA</div>
-                            <div class="item">Mastercard</div>
-                            <div class="item">Discover</div>
-                        </div>
->>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
                       </div>
                     </div>
                   </div>
                   <div class="ui three wide column field">
                     <label>CVC</label>
-                    <input type="password" required>
+                    <input type="password">
                   </div>
                 </div>
 
                 <div class="ui grid">
                   <div class="ui eight wide column field">
                     <label>Expiration Date</label>
-                    <input type="date" required>
+                    <input type="date">
                   </div>
                   <div class="ui eight wide column field">
                     <label>Email Address</label>
-                    <input type="text" required>
-                  </div>
-                </div>
-
-                <div class="ui checkbox">
-                  <input id="billingAdd" type="checkbox" name="example">
-                  <label>Billing  address is the same as shipping address</label>
-                </div>
-
-                <!-- CARDHOLDER'S ADDRESS -->
-                <div id="address">
-                  <div class="field">
-                    <label>Cardholder's Address</label>
                     <input type="text">
                   </div>
-                  <div class="ui grid">
-                    <div class="ui nine wide column field">
-                      <label>City</label>
-                      <input type="text">
-                    </div>
-                    <div class="ui three wide column field">
-                      <label>State</label>
-                      <input type="text">
-                    </div>
-                    <div class="ui four wide column field">
-                      <label>Zip Code</label>
-                      <input type="text">
-                    </div>
-                  </div>
                 </div>
 
-<<<<<<< HEAD
-=======
-                <div class="ui checkbox">
-                  <input id="billingAdd" type="checkbox" name="example">
-                  <label>Billing  address is the same as shipping address</label>
-                </div>
-
-                <!-- CARDHOLDER'S ADDRESS -->
-                <div id="address">
-                  <div class="field">
-                    <label>Cardholder's Address</label>
-                    <input type="text">
-                  </div>
-                  <div class="ui grid">
-                    <div class="ui nine wide column field">
-                      <label>City</label>
-                      <input type="text">
-                    </div>
-                    <div class="ui three wide column field">
-                      <label>State</label>
-                      <input type="text">
-                    </div>
-                    <div class="ui four wide column field">
-                      <label>Zip Code</label>
-                      <input type="text">
-                    </div>
-                  </div>
-                </div>
-
->>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
               </form>
-
+              
             </div>
           </div>
           <div class="ui six wide column">
-            <h1>Shipping to:</h1>
+            <h1>Order Summary</h1>
             <div class="ui grid">
 
-              <!-- SHIPPING NAME AND ADDRESS -->
+              <!-- WEIGHT  -->
               <div class="row">
                 <div class="ten wide column">
-                  <p>
-                  Name <br>
-                  Address <br>
-                  City, State Zip Code
-                  </p>
+                  <span>Weight:</span>
+                </div>
+                <div class="six wide column right floated right aligned">
+                  <span><?php echo $weight." lbs"; ?></span>
+                </div>
+              </div>
+
+              <!-- TOTAL BEFORE TAX -->
+              <div class="row">
+                <div class="ten wide column">
+                  <span>Total before tax:</span>
+                </div>
+                <div class="six wide column right floated right aligned">
+                  <span><?php echo "$ ".number_format($price, 2); ?></span>
+                </div>
+              </div>
+
+              <!-- ESTIMATED TAX -->
+              <div class="row">
+                <div class="ten wide column">
+                  <span>Estimated tax:</span>
+                </div>
+                <div class="six wide column right floated right aligned">
+                  <span><?php echo "$ ".number_format($tax, 2); ?></span>
+                </div>
+              </div>
+
+              <!-- ORDER TOTAL -->
+              <div class="row">
+                <div class="ten wide column">
+                  <span><h3>Order Total:</h3></span>
+                </div>
+                <div class="six wide column right floated right aligned">
+                  <span><h3><?php echo "$ ".number_format($orderTot, 2); ?></h3></span>
                 </div>
               </div>
 
               <!-- BUTTON -->
-              <script>
-                function testCreditCard() {
-                  var myCardNo = document.getElementById("cardNumber").value;
-                  myCardType = document.getElementById("cardType").value;
-                  if (checkCreditCard(myCardNo, myCardType)) {
-                    alert("Credit card has a valid format")
-                  } else {
-                    array_push($errors, "Credit Card is invalid");
-                  };
-                }
-              </script>
               <div class="row">
                 <div class="sixteen wide column">
-                  <a href="confirmation.php">
-                    <button class="ui fluid green button">Confirm</button>
+                  <a href="shipping.php">
+                    <button class="ui fluid green button">Proceed to shipping</button>
                   </a>
                 </div>
               </div>
@@ -347,7 +249,7 @@
             </div>
           </div>
         </div>
-
+        
       </div>
 
     </section>
@@ -364,19 +266,8 @@
       ;
     })
   ;
-  $(document).ready(function() {
-    $('#billingAdd').change(function() {
-        $('#address').toggle();
-    });
-  });
   </script>
 
 </body>
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
-=======
->>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
 </html>
