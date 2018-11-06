@@ -56,7 +56,7 @@
             } 
             else 
             {
-              $_SESSION["cart"] = array_merge($_SESSION["cart"],$itemArray);
+              $_SESSION["cart"] = $_SESSION["cart"] + $itemArray;
             }
           } 
           else 
