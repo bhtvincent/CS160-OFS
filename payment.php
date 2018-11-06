@@ -1,6 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
   session_start();
+=======
+<?php 
+  session_start(); 
+>>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
 =======
 <?php 
   session_start(); 
@@ -159,6 +164,7 @@
                 </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <!-- CARDHOLDER'S ADDRESS -->
                 <div class="field">
                   <label>Cardholder's Address</label>
@@ -181,11 +187,14 @@
 
 =======
 >>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
+=======
+>>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
                 <!-- CARD INFORMATION -->
                 <div class="ui grid">
                   <div class="ui thirteen wide column field">
                     <label>Card Number</label>
                     <div class="ui right labeled input">
+<<<<<<< HEAD
 <<<<<<< HEAD
                       <input type="text" id="cardNumber" required>
                       <div class="ui dropdown label">
@@ -197,6 +206,17 @@
                             <div class="item">Discover</div>
                             <div class="item">American Express</div>
                           </div>
+=======
+                      <input type="text">
+                      <div class="ui dropdown label">
+                        <div class="text">Card Type</div>
+                          <i class="dropdown icon"></i>
+                          <div class="menu">
+                            <div class="item">VISA</div>
+                            <div class="item">Mastercard</div>
+                            <div class="item">Discover</div>
+                        </div>
+>>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
 =======
                       <input type="text">
                       <div class="ui dropdown label">
@@ -255,6 +275,36 @@
                   </div>
                 </div>
 
+<<<<<<< HEAD
+=======
+                <div class="ui checkbox">
+                  <input id="billingAdd" type="checkbox" name="example">
+                  <label>Billing  address is the same as shipping address</label>
+                </div>
+
+                <!-- CARDHOLDER'S ADDRESS -->
+                <div id="address">
+                  <div class="field">
+                    <label>Cardholder's Address</label>
+                    <input type="text">
+                  </div>
+                  <div class="ui grid">
+                    <div class="ui nine wide column field">
+                      <label>City</label>
+                      <input type="text">
+                    </div>
+                    <div class="ui three wide column field">
+                      <label>State</label>
+                      <input type="text">
+                    </div>
+                    <div class="ui four wide column field">
+                      <label>Zip Code</label>
+                      <input type="text">
+                    </div>
+                  </div>
+                </div>
+
+>>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
               </form>
               
             </div>
@@ -323,7 +373,10 @@
 
 </body>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
 =======
 >>>>>>> 4f06c1bd5e8b1736099524ef601a609e0c6fbec0
 </html>
