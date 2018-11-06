@@ -33,7 +33,7 @@
       </div>
     </h2>
     
-    <form method="post" actions="createProfile.php">
+    <form method="post" actions="profile.php">
 
       <?php include('errors.php'); ?>
 
@@ -68,6 +68,13 @@
               <input type="text" name="phone_number" placeholder="Phone Number" value="<?php echo $phone_number; ?>">
             </div>
           </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="text" name="address" placeholder="Address" value="<?php echo $address; ?>">
+            </div>
+          </div>
           
           <div class="field">
             <div class="ui left icon input">
@@ -79,13 +86,34 @@
           <div class="field">
             <div class="ui left icon input">
               <i class="lock icon"></i>
-              <input type="text" name="address" placeholder="Street Address" value="<?php echo $address; ?>">
+              <input type="text" name="state" placeholder="State" value="<?php echo $state; ?>">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="text" name="zipcode" placeholder="Zipcode" value="<?php echo $zipcode; ?>">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="text" name="card_type" placeholder="Card Type" value="<?php echo $card_type; ?>">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="text" name="card_number" placeholder="Card Number" value="<?php echo $card_number; ?>">
             </div>
           </div>
           
           <div class="field">
-				    <button type="submit" class="ui large fluid green submit button" name="create_profile">Create</button>
-			    </div>
+            <button type="submit" class="ui large fluid green submit button" name="create_profile">Create</button>
+          </div>
           <!-- <div class="ui fluid large green submit button" name="reg_user">Sign up</div> -->
 
         </div>

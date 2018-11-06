@@ -49,21 +49,21 @@
 
       <form class="ui large form">
         <div class="ui stacked segment">
-          
+
         <div class="field">
             <div class="ui left icon input">
               <i class="envelope icon"></i>
               <input type="text" name="username" placeholder="Username">
             </div>
           </div>
-          
+
           <div class="field">
             <div class="ui left icon input">
               <i class="lock icon"></i>
               <input type="password" name="password" placeholder="Password">
             </div>
           </div>
-          
+
           <div class="field">
 				    <button type="submit" class="ui fluid large green submit button" name="login_user">Login</button>
 			    </div>
@@ -76,13 +76,13 @@
         If you don't have an account yet. <a href="signup.php">Sign up here.</a>
       </div>
 
-      <a href="index.php">    
+      <a href="index.php">
         <button class="ui fluid large primary button">
           <i class="left arrow icon "></i>
           Home
         </button>
       </a>
-      
+
   </form>
 
   </div>
@@ -91,4 +91,3 @@
 </body>
 
 </html>
-
