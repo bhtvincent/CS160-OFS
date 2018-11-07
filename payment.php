@@ -226,14 +226,14 @@
                   </div>
                   <div class="ui three wide column field">
                     <label>CVC</label>
-                    <input type="password" required>
+                    <input type="password" id="cvc" required>
                   </div>
                 </div>
 
                 <div class="ui grid">
                   <div class="ui eight wide column field">
                     <label>Expiration Date</label>
-                    <input type="date" required>
+                    <input type="date" id="expirationDate" required>
                   </div>
                   <div class="ui eight wide column field">
                     <label>Email Address</label>
